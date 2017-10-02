@@ -34,7 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Storage.EF", "Domain.Storage.EF\Domain.Storage.EF.csproj", "{F10E9DEE-EF04-4A8E-85C1-3A41C9E5D176}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDSample.Repository.EF", "Domain.Storage.EF\DDDSample.Repository.EF.csproj", "{F10E9DEE-EF04-4A8E-85C1-3A41C9E5D176}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host.Masstransit", "Host.Masstransit\Host.Masstransit.csproj", "{6B502827-E35A-4FB5-900A-E208AABC2232}"
 EndProject

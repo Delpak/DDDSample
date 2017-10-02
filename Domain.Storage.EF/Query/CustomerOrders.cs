@@ -3,7 +3,7 @@ using System.Linq;
 using Domain.Infrastructure;
 using Domain.Infrastructure.Interfaces;
 
-namespace Domain.Storage.EF.Query
+namespace DDDSample.Repository.EF.Query
 {
     // Query input and result DTOs
     public sealed class CustomerOrders : IQuery<CustomerOrders.Result>

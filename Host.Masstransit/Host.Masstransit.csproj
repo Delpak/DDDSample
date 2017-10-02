@@ -90,9 +90,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain.Storage.EF\Domain.Storage.EF.csproj">
+    <ProjectReference Include="..\Domain.Storage.EF\DDDSample.Repository.EF.csproj">
       <Project>{F10E9DEE-EF04-4A8E-85C1-3A41C9E5D176}</Project>
-      <Name>Domain.Storage.EF</Name>
+      <Name>DDDSample.Repository.EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{7503DC12-46FC-498A-B9CC-3990548128EB}</Project>

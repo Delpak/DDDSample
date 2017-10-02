@@ -2,7 +2,7 @@
 using Autofac;
 using Domain.Infrastructure.Interfaces;
 
-namespace Domain.Storage.EF
+namespace DDDSample.Repository.EF
 {
     public class DomainStorageModule : Module
     {

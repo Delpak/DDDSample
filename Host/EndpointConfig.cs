@@ -1,9 +1,9 @@
 
 using System.Configuration;
+using DDDSample.Repository.EF;
 using Domain;
 using Domain.Infrastructure;
 using Domain.Infrastructure.Interfaces;
-using Domain.Storage.EF;
 using Host.Common;
 using Host.Infrastructure;
 using Ninject;

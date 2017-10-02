@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Security.Policy;
+using DDDSample.Repository.EF.Query;
 using Domain.Exceptions;
 using Domain.Models;
 using Domain.Specifications;
-using Domain.Storage.EF.Query;
 using Moq;
 using NUnit.Framework;
 

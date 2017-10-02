@@ -7,8 +7,8 @@
     <ProjectGuid>{F10E9DEE-EF04-4A8E-85C1-3A41C9E5D176}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain.Storage.EF</RootNamespace>
-    <AssemblyName>Domain.Storage.EF</AssemblyName>
+    <RootNamespace>DDDSample.Repository.EF</RootNamespace>
+    <AssemblyName>DDDSample.Repository.EF</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

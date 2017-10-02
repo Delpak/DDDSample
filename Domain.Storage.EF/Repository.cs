@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using Domain.Infrastructure;
 using Domain.Infrastructure.Interfaces;
 
-namespace Domain.Storage.EF
+namespace DDDSample.Repository.EF
 {
     public sealed class Repository : IRepository, IDisposable
     {
