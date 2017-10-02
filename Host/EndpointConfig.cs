@@ -38,7 +38,7 @@ namespace Host
             var kernal = new StandardKernel();
 
             kernal.Bind<ILog>().ToMethod(context => LogManager.GetLogger(context.Request.Target.Member.DeclaringType));
-            kernal.Bind<IAppContext>().To<AppContext>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["Database"]);
+            kernal.Bind<IAppContext>().To<AppContext>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
             kernal.Bind<IManageUnitsOfWork>().To<UnitOfWork>();
 
             return kernal;

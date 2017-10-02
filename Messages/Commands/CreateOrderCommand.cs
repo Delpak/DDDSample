@@ -2,7 +2,7 @@
 
 namespace Messages.Commands
 {
-    public class CreateOrder
+    public class CreateOrderCommand
     {
         public Guid CustomerId { get; set; }
         public string Email { get; set; }

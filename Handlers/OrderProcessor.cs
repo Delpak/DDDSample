@@ -15,18 +15,18 @@ using NServiceBus.Saga;
 
 namespace Handlers
 {
-    public class OrderProcessor:Saga<OrderProcessorState>,IAmStartedByMessages<CreateOrder>, IHandleMessages<ICustomerCreated>
+    public class OrderProcessor:Saga<OrderProcessorState>,IAmStartedByMessages<CreateOrderCommand>, IHandleMessages<ICustomerCreated>
     {
         [Inject]
         public IRepository Repository { private get; set; }
 
         protected override void ConfigureHowToFindSaga(SagaPropertyMapper<OrderProcessorState> mapper)
         {
-            mapper.ConfigureMapping<CreateOrder>(m=>m.OrderId).ToSaga(s=>s.OrderId);
+            mapper.ConfigureMapping<CreateOrderCommand>(m=>m.OrderId).ToSaga(s=>s.OrderId);
             mapper.ConfigureMapping<ICustomerCreated>(m=>m.CustomerId).ToSaga(s=>s.CustomerId);
         }
 
-        public void Handle(CreateOrder message)
+        public void Handle(CreateOrderCommand message)
         {
             Data.CustomerId = message.CustomerId;
             Data.Email = message.Email;
@@ -39,7 +39,7 @@ namespace Handlers
             var customer = Repository.Load<Customer>(x => x.CustomerId == message.CustomerId);
             if (customer == null)
             {
-                Bus.Send(new CreateCustomer
+                Bus.Send(new CreateCustomerCommand
                          {
                              CustomerId = Data.CustomerId,
                              Email = Data.Email,

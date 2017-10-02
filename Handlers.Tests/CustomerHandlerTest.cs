@@ -18,7 +18,7 @@ namespace Handlers.Tests
         [Test]
         public void CreateCustomer_Basic()
         {
-            var cmd = new CreateCustomer
+            var cmd = new CreateCustomerCommand
                       {
                           CustomerId = Guid.NewGuid(),
                           FirstName = "John",
@@ -39,7 +39,7 @@ namespace Handlers.Tests
         [ExpectedException(typeof (DuplicateEmailException))]
         public void CreateCustomer_DuplicateEmail()
         {
-            var cmd = new CreateCustomer
+            var cmd = new CreateCustomerCommand
             {
                 CustomerId = Guid.NewGuid(),
                 FirstName = "John",

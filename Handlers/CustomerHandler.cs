@@ -8,7 +8,7 @@ using NServiceBus;
 
 namespace Handlers
 {
-    public class CustomerHandler:IHandleMessages<CreateCustomer>
+    public class CustomerHandler:IHandleMessages<CreateCustomerCommand>
     {
         readonly IRepository _repository;
         readonly IBus _bus;
@@ -24,7 +24,7 @@ namespace Handlers
             
         }
 
-        public void Handle(CreateCustomer message)
+        public void Handle(CreateCustomerCommand message)
         {
             var customer = new Customer(message.CustomerId, message.FirstName, message.LastName, message.Email, _duplicateCustomerEmail);
 

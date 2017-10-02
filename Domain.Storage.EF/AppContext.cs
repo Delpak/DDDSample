@@ -13,8 +13,7 @@ namespace Domain.Storage.EF
             
         }
 
-        public AppContext(string connectionString)
-            : base(connectionString)
+        public AppContext(string connectionString) : base(connectionString)
         {
             if (Debugger.IsAttached)
             {

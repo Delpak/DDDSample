@@ -33,7 +33,7 @@ namespace Handlers.Tests
 
             Test.Saga<OrderProcessor>()
                 .WithExternalDependencies(processor => processor.Repository = repository.Object)
-                .WhenHandling<CreateOrder>(c =>
+                .WhenHandling<CreateOrderCommand>(c =>
                                            {
                                                c.CustomerId = customerId;
                                                c.Email = "john.smith@domain.com";
@@ -52,7 +52,7 @@ namespace Handlers.Tests
                                                     e.Email = "johnsmith@domain.com";
 
                                                 })
-                .ExpectSend<CreateCustomer>(customer => customer!=null)
+                .ExpectSend<CreateCustomerCommand>(customer => customer!=null)
                 .ExpectPublish<IOrderCreated>()
                 .AssertSagaCompletionIs(true)
                 ;
@@ -74,7 +74,7 @@ namespace Handlers.Tests
 
             Test.Saga<OrderProcessor>()
                 .WithExternalDependencies(processor => processor.Repository = repository.Object)
-                .WhenHandling<CreateOrder>(c =>
+                .WhenHandling<CreateOrderCommand>(c =>
                 {
                     c.CustomerId = customerId;
                     c.Email = "john.smith@domain.com";
@@ -88,7 +88,7 @@ namespace Handlers.Tests
                     c.Country = "Australia";
                 })
                 .WhenHandling<ICustomerCreated>()
-                .ExpectNotSend<CreateCustomer>(customer => customer==null)
+                .ExpectNotSend<CreateCustomerCommand>(customer => customer==null)
                 .ExpectPublish<IOrderCreated>()
                 .AssertSagaCompletionIs(true)
                 ;

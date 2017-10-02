@@ -13,10 +13,13 @@ This sample is far from complete, new features will be added to demonstrate how 
     - SQLCe
     - MSMQ
     - MSSQL
+	- MassTransit
+	- RabittMQ
 
     Technology features used in this sample:
     - EF Migrations
     - NSB Saga
+	- MassTransit Saga
 
     Patterns used in this sample:
     - CQRS pattern
