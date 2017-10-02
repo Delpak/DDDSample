@@ -1,6 +1,5 @@
 ﻿using System;
 using Domain.Exceptions;
-using Domain.Infrastructure;
 using Domain.Specifications;
 
 namespace Domain.Models
