@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Infrastructure
+namespace DDDSample.Common
 {
     public interface ISpecification<TEntity>
     {

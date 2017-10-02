@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data.Entity;
-using System.Security.Policy;
 using DDDSample.Repository.EF.Query;
 using Domain.Exceptions;
 using Domain.Models;

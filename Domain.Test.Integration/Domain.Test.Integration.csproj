@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Domain.Test.Integration</RootNamespace>
     <AssemblyName>Domain.Test.Integration</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -89,6 +89,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DDDSample.Common\DDDSample.Common.csproj">
+      <Project>{f9a39740-d529-4f9f-bb4c-15d661d8ad77}</Project>
+      <Name>DDDSample.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain.Storage.EF\DDDSample.Repository.EF.csproj">
       <Project>{f10e9dee-ef04-4a8e-85c1-3a41c9e5d176}</Project>
       <Name>DDDSample.Repository.EF</Name>
