@@ -2,8 +2,8 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Infrastructure;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
 
 namespace DDDSample.Repository.EF
 {
@@ -21,7 +21,7 @@ namespace DDDSample.Repository.EF
         /// </summary>
         public void Add<TAggregate>(TAggregate aggregate) where TAggregate : class
         {
-            ((AppContext) _context).Set<TAggregate>().Add(aggregate);
+            ((AppContext)_context).Set<TAggregate>().Add(aggregate);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace DDDSample.Repository.EF
         public TAggregate Load<TAggregate>(Func<TAggregate, bool> predicate, params Expression<Func<TAggregate, object>>[] includes)
             where TAggregate : class
         {
-            var q = ((AppContext) _context).Set<TAggregate>().AsQueryable();
+            var q = ((AppContext)_context).Set<TAggregate>().AsQueryable();
 
             if (includes != null)
             {

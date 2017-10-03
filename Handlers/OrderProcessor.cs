@@ -1,52 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
-using Domain.Models;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Models;
 using Messages.Commands;
 using Messages.Events;
 using Ninject;
 using NServiceBus;
 using NServiceBus.Saga;
+using Order = BoundedContext.Domain.Model.Models.Order;
 
 namespace Handlers
 {
-    public class OrderProcessor:Saga<OrderProcessorState>,IAmStartedByMessages<CreateOrderCommand>, IHandleMessages<ICustomerCreated>
+    public class OrderProcessor : Saga<OrderProcessorState>, IAmStartedByMessages<CreateOrderCommand>, IHandleMessages<ICustomerCreated>
     {
         [Inject]
         public IRepository Repository { private get; set; }
 
         protected override void ConfigureHowToFindSaga(SagaPropertyMapper<OrderProcessorState> mapper)
         {
-            mapper.ConfigureMapping<CreateOrderCommand>(m=>m.OrderId).ToSaga(s=>s.OrderId);
-            mapper.ConfigureMapping<ICustomerCreated>(m=>m.CustomerId).ToSaga(s=>s.CustomerId);
+            mapper.ConfigureMapping<CreateOrderCommand>(m => m.OrderId).ToSaga(s => s.OrderId);
+            mapper.ConfigureMapping<ICustomerCreated>(m => m.CustomerId).ToSaga(s => s.CustomerId);
         }
 
         public void Handle(CreateOrderCommand message)
         {
-            Data.CustomerId = message.CustomerId;
+            Data.CustomerId = new CustomerId(message.CustomerId.ToString());
             Data.Email = message.Email;
             Data.FirstName = message.FirstName;
             Data.LastName = message.LastName;
             Data.OrderId = message.OrderId;
-            
+
 
             // ensure the customer exists, if not, create it
-            var customer = Repository.Load<Customer>(x => x.CustomerId == message.CustomerId);
+            var customer = Repository.Load<Customer>(x => x.CustomerId == new CustomerId(message.CustomerId.ToString()));
             if (customer == null)
             {
                 Bus.Send(new CreateCustomerCommand
-                         {
-                             CustomerId = Data.CustomerId,
-                             Email = Data.Email,
-                             FirstName = Data.FirstName,
-                             LastName = Data.LastName
+                {
+                    CustomerId = Guid.Parse(Data.CustomerId.ToString()),
+                    Email = Data.Email,
+                    FirstName = Data.FirstName,
+                    LastName = Data.LastName
 
-                         });
+                });
                 return;
             }
 
@@ -61,7 +56,7 @@ namespace Handlers
 
         void CreateOrder()
         {
-            var order = new Domain.Models.Order(Data.OrderId, Data.CustomerId, string.Format("{0} {1}", Data.FirstName, Data.LastName),
+            var order = new Order(new OrderId(Data.OrderId), Data.CustomerId, string.Format("{0} {1}", Data.FirstName, Data.LastName),
                                                 Data.Address1, Data.Address2, Data.Suburb, Data.State, Data.Postcode, Data.Country);
             Repository.Add(order);
         }
@@ -83,11 +78,11 @@ namespace Handlers
         public virtual string Originator { get; set; }
         public virtual string OriginalMessageId { get; set; }
 
-        public virtual Guid CustomerId { get; set; }
+        public virtual CustomerId CustomerId { get; set; }
         public virtual string Email { get; set; }
         public virtual string FirstName { get; set; }
         public virtual string LastName { get; set; }
-        
+
         public virtual Guid OrderId { get; set; }
         public virtual string Address1 { get; set; }
         public virtual string Address2 { get; set; }

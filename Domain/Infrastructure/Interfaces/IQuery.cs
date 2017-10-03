@@ -1,4 +1,4 @@
-﻿namespace Domain.Infrastructure.Interfaces
+﻿namespace BoundedContext.Domain.Model.Infrastructure.Interfaces
 {
     public interface IQuery<TResult>
     {

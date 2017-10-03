@@ -1,7 +1,7 @@
 ﻿using System;
-using Domain.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
 
-namespace Domain.Infrastructure
+namespace BoundedContext.Domain.Model.Infrastructure
 {
     public sealed class QueryResult<TResult>
     {

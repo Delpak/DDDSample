@@ -1,9 +1,8 @@
 ﻿using System;
-using Domain.Exceptions;
-using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
-using Domain.Models;
-using Domain.Specifications;
+using BoundedContext.Domain.Model.Exceptions;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Models;
+using BoundedContext.Domain.Model.Specifications;
 using Messages.Commands;
 using Messages.Events;
 using Moq;

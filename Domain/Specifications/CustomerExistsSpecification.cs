@@ -1,10 +1,9 @@
 ﻿using System.Linq;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Models;
 using DDDSample.Common;
-using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
-using Domain.Models;
 
-namespace Domain.Specifications
+namespace BoundedContext.Domain.Model.Specifications
 {
     public class CustomerExistsSpecification : ICustomerExistsSpecification
     {

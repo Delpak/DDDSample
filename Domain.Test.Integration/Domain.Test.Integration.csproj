@@ -97,9 +97,9 @@
       <Project>{f10e9dee-ef04-4a8e-85c1-3a41c9e5d176}</Project>
       <Name>DDDSample.Repository.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\BoundedContext.Domain.Model.csproj">
       <Project>{7503DC12-46FC-498A-B9CC-3990548128EB}</Project>
-      <Name>Domain</Name>
+      <Name>BoundedContext.Domain.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

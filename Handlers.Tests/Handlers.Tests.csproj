@@ -71,9 +71,9 @@
       <Project>{f9a39740-d529-4f9f-bb4c-15d661d8ad77}</Project>
       <Name>DDDSample.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\BoundedContext.Domain.Model.csproj">
       <Project>{7503DC12-46FC-498A-B9CC-3990548128EB}</Project>
-      <Name>Domain</Name>
+      <Name>BoundedContext.Domain.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Handlers\Handlers.csproj">
       <Project>{9F9712D8-486D-4654-AC19-C6E9BEAEC0AB}</Project>

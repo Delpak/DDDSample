@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{7503DC12-46FC-498A-B9CC-3990548128EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoundedContext.Domain.Model", "Domain\BoundedContext.Domain.Model.csproj", "{7503DC12-46FC-498A-B9CC-3990548128EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{45B6B734-A222-41E6-9305-29F469B8D123}"
 	ProjectSection(SolutionItems) = preProject
@@ -45,6 +45,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D84A83D3-4156-452B-B7D7-DA1BC3271DAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDSample.Common", "DDDSample.Common\DDDSample.Common.csproj", "{F9A39740-D529-4F9F-BB4C-15D661D8AD77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoundedContext1", "BoundedContext1", "{645B47DF-133B-453B-9166-AA4DF1EDF77B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoundedContext2", "BoundedContext2", "{0CA49031-F8C9-4CB7-805C-803E3806D716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +105,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{7503DC12-46FC-498A-B9CC-3990548128EB} = {645B47DF-133B-453B-9166-AA4DF1EDF77B}
 		{572D77C9-D9E3-4643-B1FC-B889A7722366} = {5D9663AD-49A9-4242-8301-1EC20C8959FE}
 		{F98D334F-4433-4AD6-8A39-A073AB49040D} = {28F3A533-E0FF-491A-98C3-DFEA724252CF}
 		{9F9712D8-486D-4654-AC19-C6E9BEAEC0AB} = {28F3A533-E0FF-491A-98C3-DFEA724252CF}

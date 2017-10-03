@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
 
-namespace Domain.Infrastructure
+namespace BoundedContext.Domain.Model.Infrastructure
 {
     public class ConventionEventRouter : IRouteEvents
     {

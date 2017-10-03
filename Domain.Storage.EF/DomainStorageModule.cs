@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 using Autofac;
-using Domain.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
 
 namespace DDDSample.Repository.EF
 {

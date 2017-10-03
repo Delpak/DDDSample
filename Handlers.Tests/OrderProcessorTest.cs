@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
-using Domain.Models;
-using Domain.Specifications;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Models;
+using BoundedContext.Domain.Model.Specifications;
 using Messages.Commands;
 using Messages.Events;
 using Moq;
@@ -16,7 +15,7 @@ using NUnit.Framework;
 namespace Handlers.Tests
 {
     [TestFixture]
-    public class OrderProcessorTest:NSBBaseTest
+    public class OrderProcessorTest : NSBBaseTest
     {
         [Test]
         public void CreateOrder_NewCustomer()
@@ -52,7 +51,7 @@ namespace Handlers.Tests
                                                     e.Email = "johnsmith@domain.com";
 
                                                 })
-                .ExpectSend<CreateCustomerCommand>(customer => customer!=null)
+                .ExpectSend<CreateCustomerCommand>(customer => customer != null)
                 .ExpectPublish<IOrderCreated>()
                 .AssertSagaCompletionIs(true)
                 ;
@@ -62,11 +61,11 @@ namespace Handlers.Tests
         public void CreateOrder_ExistingCustomer()
         {
             var orderId = Guid.NewGuid();
-            var customerId = Guid.NewGuid();
+            var customerId = new CustomerId(Guid.NewGuid().ToString());
 
             var repository = new Mock<IRepository>();
-            repository.Setup(x => x.Load(It.IsAny<Func<Customer, bool>>())).Returns(new Customer(customerId,"John","Smith","john.smith@domain.com",new Mock<IDuplicateCustomerEmail>().Object));
-            repository.Setup(x => x.Add(It.IsAny<Order>())) 
+            repository.Setup(x => x.Load(It.IsAny<Func<Customer, bool>>())).Returns(new Customer(customerId, "John", "Smith", "john.smith@domain.com", new Mock<IDuplicateCustomerEmail>().Object));
+            repository.Setup(x => x.Add(It.IsAny<Order>()))
                       .Callback<Order>(order =>
                       {
                           Assert.AreEqual(orderId, order.OrderId);
@@ -76,7 +75,7 @@ namespace Handlers.Tests
                 .WithExternalDependencies(processor => processor.Repository = repository.Object)
                 .WhenHandling<CreateOrderCommand>(c =>
                 {
-                    c.CustomerId = customerId;
+                    c.CustomerId = Guid.Parse(customerId.ToString());
                     c.Email = "john.smith@domain.com";
                     c.FirstName = "John";
                     c.LastName = "Smith";
@@ -88,7 +87,7 @@ namespace Handlers.Tests
                     c.Country = "Australia";
                 })
                 .WhenHandling<ICustomerCreated>()
-                .ExpectNotSend<CreateCustomerCommand>(customer => customer==null)
+                .ExpectNotSend<CreateCustomerCommand>(customer => customer == null)
                 .ExpectPublish<IOrderCreated>()
                 .AssertSagaCompletionIs(true)
                 ;

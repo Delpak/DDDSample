@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
 
-namespace Domain.Infrastructure
+namespace BoundedContext.Domain.Model.Infrastructure
 {
     public abstract class AggregateBase : IAggregate
     {

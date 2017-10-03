@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Configuration;
 using Autofac;
+using BoundedContext.Domain.Model;
 using DDDSample.Repository.EF;
-using Domain;
 using GreenPipes;
 using Host.Masstransit.Consumers;
 using MassTransit;

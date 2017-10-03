@@ -1,14 +1,15 @@
 ﻿using System;
+using BoundedContext.Domain.Model.Models;
 
-namespace Domain.Exceptions
+namespace BoundedContext.Domain.Model.Exceptions
 {
-    public class CustomerLimitReachedException:Exception
+    public class CustomerLimitReachedException : Exception
     {
-        public Guid CustomerId { get; private set; }
-        public Guid OrderId { get; private set; }
+        public CustomerId CustomerId { get; private set; }
+        public OrderId OrderId { get; private set; }
         public decimal OrderValue { get; private set; }
 
-        public CustomerLimitReachedException(Guid customerId,Guid orderId, decimal orderValue)
+        public CustomerLimitReachedException(CustomerId customerId, OrderId orderId, decimal orderValue)
         {
             CustomerId = customerId;
             OrderId = orderId;

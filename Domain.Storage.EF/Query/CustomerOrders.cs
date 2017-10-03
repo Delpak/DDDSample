@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Linq;
-using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Infrastructure;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Models;
 
 namespace DDDSample.Repository.EF.Query
 {
     // Query input and result DTOs
     public sealed class CustomerOrders : IQuery<CustomerOrders.Result>
     {
-        public Guid? CustomerId{get; set; }
+        public CustomerId CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
@@ -22,7 +23,7 @@ namespace DDDSample.Repository.EF.Query
     }
 
     // Query logic processor
-    public class CustomerOrdersQueryHandler:IQueryHandler<CustomerOrders,CustomerOrders.Result>
+    public class CustomerOrdersQueryHandler : IQueryHandler<CustomerOrders, CustomerOrders.Result>
     {
         readonly IAppContext _context;
 
@@ -37,8 +38,8 @@ namespace DDDSample.Repository.EF.Query
 
             var q = _context.Orders.AsQueryable();
 
-            if (query.CustomerId.HasValue)
-                q = q.Where(x => x.CustomerId == query.CustomerId.Value);
+            if (query.CustomerId != null)
+                q = q.Where(x => x.CutomerId == query.CustomerId.Id);
 
             if (!string.IsNullOrWhiteSpace(query.FirstName))
                 q = q.Where(x => x.CustomerFullName.StartsWith(query.FirstName, StringComparison.InvariantCultureIgnoreCase));

@@ -1,7 +1,7 @@
 ﻿namespace DDDSample.Common.Domain.Model
 {
-    public interface IIdentity
+    public interface IIdentity<T>
     {
-        string Id { get; }
+        T Id { get; }
     }
 }

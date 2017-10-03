@@ -7,8 +7,8 @@
     <ProjectGuid>{7503DC12-46FC-498A-B9CC-3990548128EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>BoundedContext.Domain.Model</RootNamespace>
+    <AssemblyName>BoundedContext.Domain.Model</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -37,6 +37,7 @@
       <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
@@ -55,12 +56,19 @@
     <Compile Include="Infrastructure\Interfaces\IRepository.cs" />
     <Compile Include="Infrastructure\Interfaces\IRouteEvents.cs" />
     <Compile Include="Infrastructure\QueryResult.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Events\Orders\CustomerNameChanged.cs" />
+    <Compile Include="Models\CustomerId.cs" />
+    <Compile Include="Models\IOrderRepository.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Events\Orders\OrderLineAdded.cs" />
     <Compile Include="Events\Orders\OrderProcessed.cs" />
     <Compile Include="Events\Orders\PaymentAdded.cs" />
+    <Compile Include="Models\OrderLine.cs" />
+    <Compile Include="Models\OrderPayment.cs" />
+    <Compile Include="Models\OrderState.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specifications\CustomerCreditLimitReached.cs" />
     <Compile Include="Specifications\CustomerExistsSpecification.cs" />

@@ -1,9 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace DDDSample.Common.Domain.Model
 {
-    public abstract class Entity { }
+    public abstract class Entity
+    {
+        [Timestamp]
+        public byte[] Timestamp { get; set; }
+    }
 
     public abstract class EntityWithCompositeId : Entity
     {

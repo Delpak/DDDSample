@@ -1,20 +1,27 @@
 ﻿using System;
-using Domain.Exceptions;
-using Domain.Specifications;
+using System.ComponentModel.DataAnnotations;
+using BoundedContext.Domain.Model.Exceptions;
+using BoundedContext.Domain.Model.Specifications;
+using DDDSample.Common.Domain.Model;
 
-namespace Domain.Models
+namespace BoundedContext.Domain.Model.Models
 {
-    public class Customer
+    public class Customer : Entity
     {
-        public Guid CustomerId { get; private set; }
+        private readonly CustomerState _customerState;
+
+        public CustomerId CustomerId { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Email { get; private set; }
-        public string FullName { get { return string.Format("{0} {1}",FirstName,LastName); } }
+        public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
         public decimal? CustomerCreditLimit { get; private set; }
 
-        internal Customer(){}
-        public Customer(Guid id, string firstName, string lastName, string email, IDuplicateCustomerEmail duplicateCustomerEmail)
+        protected Customer()
+        {
+            CustomerId = new CustomerId(Guid.NewGuid().ToString());
+        }
+        public Customer(CustomerId id, string firstName, string lastName, string email, IDuplicateCustomerEmail duplicateCustomerEmail)
         {
             CustomerId = id;
             FirstName = firstName;
@@ -25,12 +32,28 @@ namespace Domain.Models
                 throw new DuplicateEmailException(email);
         }
 
-        
+        public Customer(CustomerState customerState)
+        {
+            this.CustomerId = new CustomerId(customerState.CustomerId);
+            this.Email = customerState.Email;
+            this.CustomerCreditLimit = CustomerCreditLimit;
+            this.FirstName = customerState.FirstName;
+            this.LastName = customerState.LastName;
+        }
         public void SetCustomerOrderLimit(decimal? limit)
         {
             CustomerCreditLimit = limit;
         }
     }
 
-    
+    public class CustomerState
+    {
+        [Key]
+        public string CustomerId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public decimal? CustomerCreditLimit { get; set; }
+
+    }
 }

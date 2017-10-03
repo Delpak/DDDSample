@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Exceptions
+namespace BoundedContext.Domain.Model.Exceptions
 {
     public class DuplicateEmailException:Exception
     {

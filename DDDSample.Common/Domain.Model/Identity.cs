@@ -2,23 +2,21 @@
 
 namespace DDDSample.Common.Domain.Model
 {
-    public abstract class Identity : IEquatable<Identity>, IIdentity
+    public abstract class Identity<T> : IEquatable<Identity<T>>, IIdentity<T>
     {
-        public Identity()
+        protected Identity()
         {
-            this.Id = Guid.NewGuid().ToString();
+            Id = default(T);
         }
 
-        public Identity(string id)
+        protected Identity(T id)
         {
-            this.Id = id;
+            Id = id;
         }
 
-        // currently for Entity Framework, set must be protected, not private.
-        // will be fixed in EF 6.
-        public string Id { get; protected set; }
+        public T Id { get; set; }
 
-        public bool Equals(Identity id)
+        public bool Equals(Identity<T> id)
         {
             if (object.ReferenceEquals(this, id)) return true;
             if (object.ReferenceEquals(null, id)) return false;
@@ -27,7 +25,7 @@ namespace DDDSample.Common.Domain.Model
 
         public override bool Equals(object anotherObject)
         {
-            return Equals(anotherObject as Identity);
+            return Equals(anotherObject as Identity<T>);
         }
 
         public override int GetHashCode()

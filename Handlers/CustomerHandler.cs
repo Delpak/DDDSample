@@ -1,7 +1,7 @@
-﻿using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
-using Domain.Models;
-using Domain.Specifications;
+﻿using System;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using BoundedContext.Domain.Model.Models;
+using BoundedContext.Domain.Model.Specifications;
 using Messages.Commands;
 using Messages.Events;
 using NServiceBus;
@@ -26,13 +26,13 @@ namespace Handlers
 
         public void Handle(CreateCustomerCommand message)
         {
-            var customer = new Customer(message.CustomerId, message.FirstName, message.LastName, message.Email, _duplicateCustomerEmail);
+            var customer = new Customer(new CustomerId( message.CustomerId.ToString()), message.FirstName, message.LastName, message.Email, _duplicateCustomerEmail);
 
             _repository.Add(customer);
 
             _bus.Publish<ICustomerCreated>(e =>
                                            {
-                                               e.CustomerId = customer.CustomerId;
+                                               e.CustomerId = Guid.Parse( customer.CustomerId.ToString());
                                                e.FirstName = customer.FirstName;
                                                e.LastName = customer.LastName;
                                                e.Email = customer.Email;

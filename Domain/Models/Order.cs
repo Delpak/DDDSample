@@ -1,21 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using Domain.Events.Orders;
-using Domain.Exceptions;
-using Domain.Infrastructure;
-using Domain.Specifications;
+using BoundedContext.Domain.Model.Events.Orders;
+using BoundedContext.Domain.Model.Exceptions;
+using BoundedContext.Domain.Model.Infrastructure;
+using BoundedContext.Domain.Model.Specifications;
+using DDDSample.Common.Domain.Model;
 
-namespace Domain.Models
+namespace BoundedContext.Domain.Model.Models
 {
+    [ComplexType]
+    public class OrderId : Identity<Guid>
+    {
+        protected OrderId() { }
+        public OrderId(Guid id) : base(id)
+        {
+        }
+    }
     /// <summary>
     /// Order Domain implement CQRS by inheriting from AggregateBase
     /// </summary>
-    public sealed class Order:AggregateBase
+    public class Order : AggregateBase
     {
-        public Guid OrderId { get; private set; }
-        public Guid CustomerId { get; private set; }
+        public OrderState State { get; }
+
+        #region Ctor
+        public Order(OrderState orderState)
+        {
+            State = orderState;
+        }
+        public Order(OrderId orderId, CustomerId customerId, string customerFullName, string address1, string address2, string suburb, string state, string postcode, string country)
+        {
+            this.State = new OrderState()
+            {
+                Address1 = address1,
+                Address2 = address2,
+                Country = country,
+                CustomerFullName = customerFullName,
+                CutomerId = customerId.Id,
+                OrderId = orderId.Id,
+                Postcode = postcode,
+                State = state,
+                Suburb = suburb
+
+            };
+
+            RaiseEvent(new OrderCreated
+            {
+                OrderId = orderId,
+                CustomerId = customerId,
+                CustomerFullName = customerFullName,
+                OrderStatus = OrderStatus.Draft.ToString(),
+                ShippingAddress1 = address1,
+                ShippingAddress2 = address2,
+                ShippingSuburb = suburb,
+                ShippingPostcode = postcode,
+                ShippingState = state,
+                ShippingCountry = country,
+            });
+
+        }
+        #endregion
+
+        public OrderId OrderId
+        {
+            get => new OrderId(State.OrderId);
+            private set
+            {
+                if (value == null) throw new ArgumentNullException(nameof(value));
+            }
+        }
+        public CustomerId CustomerId => new CustomerId(State.CutomerId);
         public string CustomerFullName { get; private set; }
 
         public ICollection<OrderLine> OrderLines { get; private set; }
@@ -23,53 +80,31 @@ namespace Domain.Models
 
         public decimal? TotalValue
         {
-            get { return OrderLines == null ? (decimal?) null : OrderLines.Sum(x => x.QTY*x.Price); }
+            get { return OrderLines == null ? (decimal?)null : OrderLines.Sum(x => x.QTY * x.Price); }
             private set { }
         }
         public decimal? TotalPaid
         {
-            get { return OrderPayments == null ? (decimal?) null : OrderPayments.Where(x => x.IsSuccessful).Sum(x => x.PaymentAmount); }
+            get { return OrderPayments == null ? (decimal?)null : OrderPayments.Where(x => x.IsSuccessful).Sum(x => x.PaymentAmount); }
             private set { }
         }
 
-        public Address ShippingAddress { get; private set; }
-        public OrderStatus OrderStatus { get; private set; }
-
-        internal Order()
-        {
-            
-        }
-        public Order(Guid orderId, Guid customerId, string customerFullName, string address1, string address2, string suburb, string state, string postcode, string country)
-        {
-            RaiseEvent(new OrderCreated
-                  {
-                      OrderId=orderId,
-                      CustomerId = customerId,
-                      CustomerFullName = customerFullName,
-                      OrderStatus= OrderStatus.Draft.ToString(),
-                      ShippingAddress1 = address1,
-                      ShippingAddress2 = address2,
-                      ShippingSuburb = suburb,
-                      ShippingPostcode = postcode,
-                      ShippingState = state,
-                      ShippingCountry = country,
-                  });
-            
-        }
+        public Address ShippingAddress => State.ShippingAddress;
+        public OrderStatus OrderStatus => State.OrderStatus;
         public void ChangeCustomerName(string customerName)
         {
-            RaiseEvent(new CustomerNameChanged {CustomerName = customerName});
+            RaiseEvent(new CustomerNameChanged { CustomerName = customerName });
         }
         public void AddOrderLine(string productName, int qty, decimal price)
         {
             RaiseEvent(new OrderLineAdded
             {
-                ProductName=productName,
+                ProductName = productName,
                 QTY = qty,
                 Price = price
             });
 
-           
+
         }
         public void ProcessingOrder(ICustomerCreditLimitReached customerCreditLimitReached)
         {
@@ -77,9 +112,9 @@ namespace Domain.Models
             if (customerCreditLimitReached.IsSatisfiedBy(this))
                 throw new CustomerLimitReachedException(CustomerId, OrderId, TotalValue.HasValue ? TotalValue.Value : 0);
 
-            RaiseEvent(new OrderProcessed{OrderStatus = Models.OrderStatus.Processing.ToString()});
+            RaiseEvent(new OrderProcessed { OrderStatus = Models.OrderStatus.Processing.ToString() });
         }
-        public void AddPayment(DateTime paidOn,decimal amount,bool isSuccessful)
+        public void AddPayment(DateTime paidOn, decimal amount, bool isSuccessful)
         {
             if (OrderStatus == OrderStatus.Draft) throw new Exception("Order is in Draft!");
 
@@ -95,12 +130,12 @@ namespace Domain.Models
 
         void When(OrderCreated e)
         {
-            OrderId = e.OrderId;
-            CustomerId = e.CustomerId;
+            this.State.OrderId = e.OrderId.Id;
+            this.State.CutomerId = e.CustomerId.ToString();
 
-            OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), e.OrderStatus);
-            CustomerFullName = e.CustomerFullName;
-            ShippingAddress = new Address
+            this.State.OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), e.OrderStatus);
+            this.State.CustomerFullName = e.CustomerFullName;
+            this.State.ShippingAddress = new Address
             {
                 Address1 = e.ShippingAddress1,
                 Address2 = e.ShippingAddress2,
@@ -113,12 +148,12 @@ namespace Domain.Models
         }
         void When(CustomerNameChanged e)
         {
-            CustomerFullName = e.CustomerName;
+            this.State.CustomerFullName = e.CustomerName;
         }
         void When(OrderLineAdded e)
         {
             if (OrderLines == null) OrderLines = new Collection<OrderLine>();
-            OrderLines.Add(new OrderLine
+            this.State.OrderLines.Add(new OrderLine
             {
                 ProductName = e.ProductName,
                 QTY = e.QTY,
@@ -127,12 +162,12 @@ namespace Domain.Models
         }
         void When(OrderProcessed e)
         {
-            OrderStatus = (OrderStatus) Enum.Parse(typeof (OrderStatus), e.OrderStatus);
+            this.State.OrderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), e.OrderStatus);
         }
         void When(PaymentAdded e)
         {
             if (OrderPayments == null) OrderPayments = new Collection<OrderPayment>();
-            OrderPayments.Add(new OrderPayment
+            this.State.OrderPayments.Add(new OrderPayment
             {
                 PaymentDate = e.PaymentDate,
                 PaymentAmount = e.PaymentAmount,
@@ -140,42 +175,4 @@ namespace Domain.Models
             });
         }
     }
-
-    public enum OrderStatus
-    {
-        Draft,
-        Processing,
-        Shipped,
-        Complete
-    }
-
-    public sealed class Address
-    {
-        public string Address1 { get; set; }
-        public string Address2 { get; set; }
-        public string Suburb { get; set; }
-        public string Postcode { get; set; }
-        public string State { get; set; }
-        public string Country { get; set; }
-    }
-
-    public class OrderLine
-    {
-        public int OrderLineId { get; set; }
-        public Guid OrderId { get; set; }
-        public string ProductName { get; set; }
-        public int QTY { get; set; }
-        public decimal Price { get; set; }
-
-    }
-    public class OrderPayment
-    {
-        public int OrderPaymentId { get; set; }
-        public Guid OrderId { get; set; }
-        public DateTime PaymentDate { get; set; }
-        public decimal PaymentAmount { get; set; }
-        public bool IsSuccessful { set; get; }
-    }
-
-    
 }

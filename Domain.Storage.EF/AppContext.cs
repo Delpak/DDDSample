@@ -1,7 +1,6 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Diagnostics;
-using Domain.Models;
+using BoundedContext.Domain.Model.Models;
 
 namespace DDDSample.Repository.EF
 {
@@ -21,16 +20,17 @@ namespace DDDSample.Repository.EF
             }
         }
 
-        public IDbSet<Order> Orders { get; set; }
-        public IDbSet<Customer> Customers { get; set; }
-        
-    }
+        public IDbSet<OrderState> Orders { get; set; }
+        public IDbSet<CustomerState> Customers { get; set; }
 
-    public interface IAppContext:IDisposable
-    {
-        IDbSet<Order> Orders { get; set; }
-        IDbSet<Customer> Customers { get; set; }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.ComplexType<CustomerId>()
+        //        .Property(p => p.Id)
+        //        .HasColumnName("CustomerId");
+                
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
-        int SaveChanges();
     }
 }

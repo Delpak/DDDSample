@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Infrastructure
+namespace BoundedContext.Domain.Model.Infrastructure.Interfaces
 {
     public interface IRouteEvents
     {

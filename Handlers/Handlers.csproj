@@ -58,9 +58,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\DDDSample.Common\DDDSample.Common.csproj">
+      <Project>{F9A39740-D529-4F9F-BB4C-15D661D8AD77}</Project>
+      <Name>DDDSample.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\BoundedContext.Domain.Model.csproj">
       <Project>{7503DC12-46FC-498A-B9CC-3990548128EB}</Project>
-      <Name>Domain</Name>
+      <Name>BoundedContext.Domain.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Messages\Messages.csproj">
       <Project>{DB1267E4-D22A-482F-98D6-78C774078AEF}</Project>

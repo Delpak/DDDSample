@@ -1,9 +1,7 @@
 
 using System.Configuration;
+using BoundedContext.Domain.Model.Infrastructure.Interfaces;
 using DDDSample.Repository.EF;
-using Domain;
-using Domain.Infrastructure;
-using Domain.Infrastructure.Interfaces;
 using Host.Common;
 using Host.Infrastructure;
 using Ninject;
@@ -39,7 +37,7 @@ namespace Host
 
             kernal.Bind<ILog>().ToMethod(context => LogManager.GetLogger(context.Request.Target.Member.DeclaringType));
             kernal.Bind<IAppContext>().To<AppContext>().WithConstructorArgument("connectionString", ConfigurationManager.ConnectionStrings["Database"].ConnectionString);
-            kernal.Bind<IManageUnitsOfWork>().To<UnitOfWork>();
+            kernal.Bind<IManageUnitsOfWork>().To<Host.Infrastructure.UnitOfWork>();
 
             return kernal;
         }

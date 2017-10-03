@@ -1,4 +1,4 @@
-﻿namespace Domain.Events.Orders
+﻿namespace BoundedContext.Domain.Model.Events.Orders
 {
     public class OrderLineAdded
     {

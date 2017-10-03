@@ -16,19 +16,19 @@ using System;
 
 namespace DDDSample.Common.Domain.Model.LongRunningProcess
 {
-    public class ProcessId : Identity
+    public class ProcessId : Identity<Guid>
     {
-        public static ProcessId ExistingProcessId(string id)
+        public static ProcessId ExistingProcessId(Guid id)
         {
             return new ProcessId(id);
         }
 
         public static ProcessId NewProcessId()
         {
-            return new ProcessId(Guid.NewGuid().ToString());
+            return new ProcessId(Guid.NewGuid());
         }
 
-        public ProcessId(string id)
+        public ProcessId(Guid id)
             : base(id)
         {
         }

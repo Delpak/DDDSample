@@ -1,7 +1,7 @@
 ﻿using Autofac;
-using Domain.Specifications;
+using BoundedContext.Domain.Model.Specifications;
 
-namespace Domain
+namespace BoundedContext.Domain.Model
 {
     public class DomainModule : Module
     {

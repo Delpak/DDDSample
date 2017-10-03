@@ -1,11 +1,12 @@
 ﻿using System;
+using BoundedContext.Domain.Model.Models;
 
-namespace Domain.Events.Orders
+namespace BoundedContext.Domain.Model.Events.Orders
 {
     public class OrderCreated
     {
-        public Guid OrderId { get; set; }
-        public Guid CustomerId { get; set; }
+        public OrderId OrderId { get; set; }
+        public CustomerId CustomerId { get; set; }
         public string CustomerFullName { get; set; }
         public string OrderStatus { get; set; }
         public string ShippingAddress1 { get; set; }

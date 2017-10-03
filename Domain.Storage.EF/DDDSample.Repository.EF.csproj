@@ -55,18 +55,26 @@
   <ItemGroup>
     <Compile Include="AppContext.cs" />
     <Compile Include="DomainStorageModule.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="IAppContext.cs" />
+    <Compile Include="OrderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\CustomerOrders.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\DDDSample.Common\DDDSample.Common.csproj">
+      <Project>{F9A39740-D529-4F9F-BB4C-15D661D8AD77}</Project>
+      <Name>DDDSample.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\BoundedContext.Domain.Model.csproj">
       <Project>{7503dc12-46fc-498a-b9cc-3990548128eb}</Project>
-      <Name>Domain</Name>
+      <Name>BoundedContext.Domain.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

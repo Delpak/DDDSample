@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
 using DDDSample.Repository.EF;
-using Domain.Infrastructure;
 using NUnit.Framework;
 using AppContext = DDDSample.Repository.EF.AppContext;
 
