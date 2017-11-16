@@ -187,3 +187,9 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/.vs/SAMA.Framework/v15/Server/sqlite3/storage.ide-wal
+/.vs/SAMA.Framework/v15/Server/sqlite3/storage.ide-shm
+/.vs/SAMA.Framework/v15/Server/sqlite3/storage.ide
+/.vs/SAMA.Framework/v15/Server/sqlite3/db.lock
+/.vs/SAMA.XSolution/v15/Server/sqlite3
+/.vs/SAMA.XSolution/v15/sqlite3

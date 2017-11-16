@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAMA.Framework", "Framework\SAMA.Framework.csproj", "{F9A39740-D529-4F9F-BB4C-15D661D8AD77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAMA.Core", "Framework\SAMA.Core\SAMA.Core.csproj", "{11BFF9AF-1476-45B7-8E15-1B300A9B0173}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9A39740-D529-4F9F-BB4C-15D661D8AD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A39740-D529-4F9F-BB4C-15D661D8AD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A39740-D529-4F9F-BB4C-15D661D8AD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A39740-D529-4F9F-BB4C-15D661D8AD77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11BFF9AF-1476-45B7-8E15-1B300A9B0173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11BFF9AF-1476-45B7-8E15-1B300A9B0173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11BFF9AF-1476-45B7-8E15-1B300A9B0173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11BFF9AF-1476-45B7-8E15-1B300A9B0173}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D094E4E3-482C-41BD-B4AA-B6AE99EB3009}
+	EndGlobalSection
+EndGlobal
