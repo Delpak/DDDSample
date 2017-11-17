@@ -3,7 +3,7 @@ using SAMA.YSolution.Domain.Helpers.Domain;
 
 namespace SAMA.YSolution.Domain.Customers
 {
-    public class CustomerCheckedOutHandle : Handles<CustomerCheckedOut>
+    public class CustomerCheckedOutHandle : IHandles<CustomerCheckedOut>
     {
         private readonly ICustomerRepository customerRepository;
         private readonly IEmailDispatcher emailDispatcher;

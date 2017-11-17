@@ -5,7 +5,7 @@ using SAMA.YSolution.Domain.Newsletter;
 
 namespace SAMA.YSolution.Domain.Customers
 {
-    public class CustomerCreatedHandle : Handles<CustomerCreated>
+    public class CustomerCreatedHandle : IHandles<CustomerCreated>
     {
         private readonly IEmailDispatcher emailDispatcher;
         private readonly INewsletterSubscriber newsletterSubscriber;

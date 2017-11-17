@@ -3,7 +3,7 @@ using SAMA.YSolution.Domain.Helpers.Repository;
 
 namespace SAMA.YSolution.Domain.Helpers.Domain
 {
-    public class DomainEventHandle<TDomainEvent> : Handles<TDomainEvent>
+    public class DomainEventHandle<TDomainEvent> : IHandles<TDomainEvent>
         where TDomainEvent : DomainEvent
     {
         private readonly IDomainEventRepository domainEventRepository;

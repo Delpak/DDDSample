@@ -38,7 +38,7 @@ namespace SAMA.YSolution.Domain.Helpers.Domain
         public static void Raise<T>(T args) where T : DomainEvent
         {
             if (Container != null)
-                foreach (var handler in Container.Resolve<IEnumerable<Handles<T>>>())
+                foreach (var handler in Container.Resolve<IEnumerable<IHandles<T>>>())
                     handler.Handle(args);
 
             if (actions != null)
