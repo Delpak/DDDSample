@@ -83,7 +83,7 @@
     <Compile Include="Helpers\Domain\DomainEventHandle.cs" />
     <Compile Include="Helpers\Domain\DomainEventRecord.cs" />
     <Compile Include="Helpers\Domain\DomainEvents.cs" />
-    <Compile Include="Helpers\Domain\Handle.cs" />
+    <Compile Include="Helpers\Domain\IHandles.cs" />
     <Compile Include="Helpers\Domain\IAggregateRoot.cs" />
     <Compile Include="Helpers\Domain\IDomainService.cs" />
     <Compile Include="Helpers\Specification\IExtensions.cs" />
