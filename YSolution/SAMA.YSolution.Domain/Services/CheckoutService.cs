@@ -1,9 +1,9 @@
 ﻿using System;
+using SAMA.Framework.Common.Helpers.Domain;
+using SAMA.Framework.Common.Helpers.Repository;
+using SAMA.Framework.Common.Helpers.Specification;
 using SAMA.YSolution.Domain.Carts;
 using SAMA.YSolution.Domain.Customers;
-using SAMA.YSolution.Domain.Helpers.Domain;
-using SAMA.YSolution.Domain.Helpers.Repository;
-using SAMA.YSolution.Domain.Helpers.Specification;
 using SAMA.YSolution.Domain.Products;
 using SAMA.YSolution.Domain.Purchases;
 

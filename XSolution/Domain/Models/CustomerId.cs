@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using SAMA.FrameWork.Common.Domain.Model;
+using SAMA.Framework.Common.Domain.Model;
 
 namespace SAMA.XSolution.Domain.Models
 {

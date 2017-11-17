@@ -33,6 +33,9 @@
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="SAMA.Framework">
+      <HintPath>..\..\Build\SAMA.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -74,23 +77,6 @@
     <Compile Include="Email\EmailTemplate.cs" />
     <Compile Include="Email\IEmailDispatcher.cs" />
     <Compile Include="Email\IEmailGenerator.cs" />
-    <Compile Include="Helpers\Logging\IRequestCorrelationIdentifier.cs" />
-    <Compile Include="Helpers\Repository\IDomainEventRepository.cs" />
-    <Compile Include="Helpers\Repository\IRepository.cs" />
-    <Compile Include="Helpers\Repository\IUnitOfWork.cs" />
-    <Compile Include="Helpers\Specification\And.cs" />
-    <Compile Include="Helpers\Domain\DomainEvent.cs" />
-    <Compile Include="Helpers\Domain\DomainEventHandle.cs" />
-    <Compile Include="Helpers\Domain\DomainEventRecord.cs" />
-    <Compile Include="Helpers\Domain\DomainEvents.cs" />
-    <Compile Include="Helpers\Domain\IHandles.cs" />
-    <Compile Include="Helpers\Domain\IAggregateRoot.cs" />
-    <Compile Include="Helpers\Domain\IDomainService.cs" />
-    <Compile Include="Helpers\Specification\IExtensions.cs" />
-    <Compile Include="Helpers\Specification\ISpecification.cs" />
-    <Compile Include="Helpers\Specification\Negate.cs" />
-    <Compile Include="Helpers\Specification\Or.cs" />
-    <Compile Include="Helpers\Specification\SpecificationBase.cs" />
     <Compile Include="Newsletter\INewsletterSubscriber.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ProductCode.cs" />

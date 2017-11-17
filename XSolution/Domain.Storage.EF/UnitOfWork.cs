@@ -1,5 +1,5 @@
 ﻿using System;
-using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.Framework.Common.Interfaces;
 
 namespace SAMA.XSolution.Repository.EF
 {
@@ -11,13 +11,13 @@ namespace SAMA.XSolution.Repository.EF
         /// <summary>
         /// The DbContext
         /// </summary>
-        private IAppContext _dbContext;
+        private IApplicationContext _dbContext;
 
         /// <summary>
         /// Initializes a new instance of the UnitOfWork class.
         /// </summary>
         /// <param name="context">The object context</param>
-        public UnitOfWork(IAppContext context)
+        public UnitOfWork(IApplicationContext context)
         {
             _dbContext = context;
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SAMA.FrameWork.Common.Notifications
+namespace SAMA.Framework.Common.Notifications
 {
     public class NotificationLogId : Domain.Model.ValueObject
     {

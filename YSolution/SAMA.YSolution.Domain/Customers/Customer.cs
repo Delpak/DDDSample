@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using SAMA.Framework.Common.Helpers.Domain;
 using SAMA.YSolution.Domain.Countries;
-using SAMA.YSolution.Domain.Helpers.Domain;
 
 namespace SAMA.YSolution.Domain.Customers
 {

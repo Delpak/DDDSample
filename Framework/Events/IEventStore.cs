@@ -1,6 +1,6 @@
-﻿using SAMA.FrameWork.Common.Domain.Model;
+﻿using SAMA.Framework.Common.Domain.Model;
 
-namespace SAMA.FrameWork.Common.Events
+namespace SAMA.Framework.Common.Events
 {
     public interface IEventStore
     {

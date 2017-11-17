@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using SAMA.YSolution.Domain.Helpers.Domain;
+using SAMA.Framework.Common.Helpers.Domain;
 
 namespace SAMA.YSolution.Domain.Products
 {

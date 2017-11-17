@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using SAMA.FrameWork.Common.Domain.Model;
+using SAMA.Framework.Common.Domain.Model;
 using SAMA.XSolution.Domain.Exceptions;
 using SAMA.XSolution.Domain.Specifications;
 

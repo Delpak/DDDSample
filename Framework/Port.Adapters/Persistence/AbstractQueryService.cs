@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace SAMA.FrameWork.Common.Port.Adapters.Persistence
+namespace SAMA.Framework.Common.Port.Adapters.Persistence
 {
     /// <summary>
     /// TODO: consider refactoring away from abstract class in favor of composition

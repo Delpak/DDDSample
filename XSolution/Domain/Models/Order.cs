@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using SAMA.FrameWork.Common.Domain.Model;
+using SAMA.Framework.Common;
+using SAMA.Framework.Common.Domain.Model;
 using SAMA.XSolution.Domain.Events.Orders;
 using SAMA.XSolution.Domain.Exceptions;
-using SAMA.XSolution.Domain.Infrastructure;
 using SAMA.XSolution.Domain.Specifications;
 
 namespace SAMA.XSolution.Domain.Models

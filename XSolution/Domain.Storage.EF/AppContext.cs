@@ -4,7 +4,7 @@ using SAMA.XSolution.Domain.Models;
 
 namespace SAMA.XSolution.Repository.EF
 {
-    public class AppContext : DbContext, IAppContext
+    public class AppContext : DbContext, IApplicationContext
     {
 
         public AppContext()

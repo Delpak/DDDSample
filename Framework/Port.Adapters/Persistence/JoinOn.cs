@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace SAMA.FrameWork.Common.Port.Adapters.Persistence
+namespace SAMA.Framework.Common.Port.Adapters.Persistence
 {
     public class JoinOn
     {

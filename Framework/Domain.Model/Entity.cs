@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace SAMA.FrameWork.Common.Domain.Model
+namespace SAMA.Framework.Common.Domain.Model
 {
     public abstract class Entity
     {

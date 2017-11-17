@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SAMA.YSolution.Domain.Helpers.Repository;
+using SAMA.Framework.Common.Helpers.Repository;
 
 namespace SAMA.YSolution.Domain.Customers
 {

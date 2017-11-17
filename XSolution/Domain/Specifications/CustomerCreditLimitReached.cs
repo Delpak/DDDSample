@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using SAMA.FrameWork.Common;
-using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.Framework.Common;
+using SAMA.Framework.Common.Interfaces;
 using SAMA.XSolution.Domain.Models;
 
 namespace SAMA.XSolution.Domain.Specifications

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace SAMA.FrameWork.Common.Port.Adapters.Persistence
+namespace SAMA.Framework.Common.Port.Adapters.Persistence
 {
     public class ResultSetObjectMapper<T>
     {

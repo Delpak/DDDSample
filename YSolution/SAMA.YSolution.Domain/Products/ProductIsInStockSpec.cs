@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
+using SAMA.Framework.Common.Helpers.Specification;
 using SAMA.YSolution.Domain.Carts;
-using SAMA.YSolution.Domain.Helpers.Specification;
 
 namespace SAMA.YSolution.Domain.Products
 {

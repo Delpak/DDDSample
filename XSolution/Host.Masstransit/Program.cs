@@ -1,8 +1,8 @@
 ﻿using Topshelf;
 
-namespace Host.Masstransit
+namespace SAMA.XSolution.Endpoint
 {
-    public partial class Program
+    public class Program
     {
 
         public static int Main()

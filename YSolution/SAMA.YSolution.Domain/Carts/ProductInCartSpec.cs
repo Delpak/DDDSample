@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using SAMA.YSolution.Domain.Helpers.Specification;
+using SAMA.Framework.Common.Helpers.Specification;
 using SAMA.YSolution.Domain.Products;
 
 namespace SAMA.YSolution.Domain.Carts

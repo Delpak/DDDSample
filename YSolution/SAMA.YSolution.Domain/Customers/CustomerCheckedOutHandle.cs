@@ -1,28 +1,27 @@
-﻿using SAMA.YSolution.Domain.Email;
-using SAMA.YSolution.Domain.Helpers.Domain;
+﻿using SAMA.Framework.Common.Helpers.Domain;
+using SAMA.YSolution.Domain.Email;
 
 namespace SAMA.YSolution.Domain.Customers
 {
     public class CustomerCheckedOutHandle : IHandles<CustomerCheckedOut>
     {
-        private readonly ICustomerRepository customerRepository;
-        private readonly IEmailDispatcher emailDispatcher;
-        private readonly IEmailGenerator emailGenerator;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IEmailDispatcher _emailDispatcher;
+        private readonly IEmailGenerator _emailGenerator;
 
-        public CustomerCheckedOutHandle(IEmailGenerator emailGenerator,
-            IEmailDispatcher emailSender, ICustomerRepository customerRepository)
+        public CustomerCheckedOutHandle(IEmailGenerator emailGenerator, IEmailDispatcher emailSender, ICustomerRepository customerRepository)
         {
-            emailDispatcher = emailSender;
-            this.emailGenerator = emailGenerator;
-            this.customerRepository = customerRepository;
+            _emailDispatcher = emailSender;
+            this._emailGenerator = emailGenerator;
+            this._customerRepository = customerRepository;
         }
 
         public void Handle(CustomerCheckedOut args)
         {
-            var customer = customerRepository.FindById(args.Purchase.CustomerId);
+            var customer = _customerRepository.FindById(args.Purchase.CustomerId);
 
-            emailDispatcher.Dispatch(
-                emailGenerator.Generate(customer, EmailTemplate.PurchaseMade)
+            _emailDispatcher.Dispatch(
+                _emailGenerator.Generate(customer, EmailTemplate.PurchaseMade)
             );
 
             //send notifications, update third party systems, etc

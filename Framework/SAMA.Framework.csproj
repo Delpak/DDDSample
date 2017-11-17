@@ -30,12 +30,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AggregateBase.cs" />
+    <Compile Include="AggregateExtensionMethods.cs" />
+    <Compile Include="ConventionEventRouter.cs" />
     <Compile Include="Domain.Model\AssertionConcern.cs" />
     <Compile Include="Domain.Model\DomainEventPublisher.cs" />
     <Compile Include="Domain.Model\Entity.cs" />
@@ -62,6 +78,31 @@
     <Compile Include="Events\EventSerializer.cs" />
     <Compile Include="Events\IEventStore.cs" />
     <Compile Include="Events\StoredEvent.cs" />
+    <Compile Include="GenericRepository.cs" />
+    <Compile Include="HandlerForDomainEventNotFoundException.cs" />
+    <Compile Include="Helpers\Domain\DomainEvent.cs" />
+    <Compile Include="Helpers\Domain\DomainEventHandle.cs" />
+    <Compile Include="Helpers\Domain\DomainEventRecord.cs" />
+    <Compile Include="Helpers\Domain\DomainEvents.cs" />
+    <Compile Include="Helpers\Domain\IAggregateRoot.cs" />
+    <Compile Include="Helpers\Domain\IDomainService.cs" />
+    <Compile Include="Helpers\Domain\IHandles.cs" />
+    <Compile Include="Helpers\Logging\IRequestCorrelationIdentifier.cs" />
+    <Compile Include="Helpers\Repository\IDomainEventRepository.cs" />
+    <Compile Include="Helpers\Repository\IRepository.cs" />
+    <Compile Include="Helpers\Repository\IUnitOfWork.cs" />
+    <Compile Include="Helpers\Specification\And.cs" />
+    <Compile Include="Helpers\Specification\IExtensions.cs" />
+    <Compile Include="Helpers\Specification\ISpecification.cs" />
+    <Compile Include="Helpers\Specification\Negate.cs" />
+    <Compile Include="Helpers\Specification\Or.cs" />
+    <Compile Include="Helpers\Specification\SpecificationBase.cs" />
+    <Compile Include="IGenericRepository.cs" />
+    <Compile Include="Interfaces\IAggregate.cs" />
+    <Compile Include="Interfaces\IQuery.cs" />
+    <Compile Include="Interfaces\IQueryHandler.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IRouteEvents.cs" />
     <Compile Include="ISpecification.cs" />
     <Compile Include="Notifications\INotificationPublisher.cs" />
     <Compile Include="Notifications\Notification.cs" />
@@ -73,8 +114,10 @@
     <Compile Include="Port.Adapters\Persistence\JoinOn.cs" />
     <Compile Include="Port.Adapters\Persistence\ResultSetObjectMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

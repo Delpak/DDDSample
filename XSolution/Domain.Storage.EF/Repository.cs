@@ -2,16 +2,16 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using SAMA.XSolution.Domain.Infrastructure;
-using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.Framework.Common;
+using SAMA.Framework.Common.Interfaces;
 
 namespace SAMA.XSolution.Repository.EF
 {
     public sealed class Repository : IRepository, IDisposable
     {
-        readonly IAppContext _context;
+        readonly IApplicationContext _context;
 
-        public Repository(IAppContext context)
+        public Repository(IApplicationContext context)
         {
             _context = context;
         }

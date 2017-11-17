@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using SAMA.Framework.Common.Helpers.Domain;
 using SAMA.YSolution.Domain.Customers;
-using SAMA.YSolution.Domain.Helpers.Domain;
 using SAMA.YSolution.Domain.Products;
 
 namespace SAMA.YSolution.Domain.Carts

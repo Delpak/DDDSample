@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
+using SAMA.Framework.Common.Helpers.Domain;
 using SAMA.YSolution.Domain.Email;
-using SAMA.YSolution.Domain.Helpers.Domain;
 using SAMA.YSolution.Domain.Newsletter;
 
 namespace SAMA.YSolution.Domain.Customers

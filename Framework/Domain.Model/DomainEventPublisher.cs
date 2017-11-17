@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SAMA.FrameWork.Common.Domain.Model
+namespace SAMA.Framework.Common.Domain.Model
 {
     public class DomainEventPublisher
     {

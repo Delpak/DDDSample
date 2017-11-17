@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="AppContext.cs" />
     <Compile Include="DomainStorageModule.cs" />
-    <Compile Include="GenericRepository.cs" />
     <Compile Include="IAppContext.cs" />
     <Compile Include="OrderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SAMA.FrameWork.Common.Events;
+using SAMA.Framework.Common.Events;
 
-namespace SAMA.FrameWork.Common.Notifications
+namespace SAMA.Framework.Common.Notifications
 {
     public class NotificationLogFactory
     {

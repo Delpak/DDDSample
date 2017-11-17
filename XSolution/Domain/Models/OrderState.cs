@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using SAMA.Framework.Common;
 
 namespace SAMA.XSolution.Domain.Models
 {
@@ -27,7 +28,5 @@ namespace SAMA.XSolution.Domain.Models
         public int? TotalPaid { get; set; }
     }
 
-    public interface IAggregateState
-    {
-    }
+   
 }

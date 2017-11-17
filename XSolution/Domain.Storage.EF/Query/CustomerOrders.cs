@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
-using SAMA.XSolution.Domain.Infrastructure;
-using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.Framework.Common;
+using SAMA.Framework.Common.Interfaces;
 using SAMA.XSolution.Domain.Models;
-using SAMA.XSolution.Repository.EF;
 
-namespace DDDSample.Repository.EF.Query
+namespace SAMA.XSolution.Repository.EF.Query
 {
     // Query input and result DTOs
     public sealed class CustomerOrders : IQuery<CustomerOrders.Result>
@@ -26,9 +25,9 @@ namespace DDDSample.Repository.EF.Query
     // Query logic processor
     public class CustomerOrdersQueryHandler : IQueryHandler<CustomerOrders, CustomerOrders.Result>
     {
-        readonly IAppContext _context;
+        readonly IApplicationContext _context;
 
-        public CustomerOrdersQueryHandler(IAppContext context)
+        public CustomerOrdersQueryHandler(IApplicationContext context)
         {
             _context = context;
         }

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using SAMA.XSolution.Messages.Commands;
 
-namespace SAMA.Host.Masstransit.Consumers
+namespace SAMA.XSolution.Endpoint.Consumers
 {
     public class CreateOrerConsumer : IConsumer<CreateOrderCommand>
     {

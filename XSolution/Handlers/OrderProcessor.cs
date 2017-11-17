@@ -2,7 +2,7 @@
 using Ninject;
 using NServiceBus;
 using NServiceBus.Saga;
-using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.Framework.Common.Interfaces;
 using SAMA.XSolution.Domain.Models;
 using SAMA.XSolution.Messages.Commands;
 using SAMA.XSolution.Messages.Events;

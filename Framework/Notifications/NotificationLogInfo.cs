@@ -1,4 +1,4 @@
-﻿namespace SAMA.FrameWork.Common.Notifications
+﻿namespace SAMA.Framework.Common.Notifications
 {
     public class NotificationLogInfo
     {

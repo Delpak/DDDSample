@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Configuration;
 using Autofac;
-using DDDSample.Repository.EF;
-using Host.Masstransit.Consumers;
 using MassTransit;
-using SAMA.Host.Masstransit.Consumers;
 using SAMA.XSolution.Domain;
+using SAMA.XSolution.Endpoint.Consumers;
+using SAMA.XSolution.Repository.EF;
 using Topshelf;
 
-namespace Host.Masstransit
+namespace SAMA.XSolution.Endpoint
 {
     internal class SampleBoundedContextService : ServiceControl
     {

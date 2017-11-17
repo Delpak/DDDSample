@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MassTransit;
-using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.Framework.Common.Interfaces;
 using SAMA.XSolution.Domain.Models;
 using SAMA.XSolution.Domain.Specifications;
 using SAMA.XSolution.Messages.Commands;
 using SAMA.XSolution.Messages.Events;
 
-namespace Host.Masstransit.Consumers
+namespace SAMA.XSolution.Endpoint.Consumers
 {
     public class CreateCustomerConsumer : IConsumer<CreateCustomerCommand>
     {

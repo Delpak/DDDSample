@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using SAMA.YSolution.Domain.Helpers.Specification;
+using SAMA.Framework.Common.Helpers.Specification;
 
 namespace SAMA.YSolution.Domain.Customers
 {

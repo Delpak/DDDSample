@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SAMA.FrameWork.Common.Domain.Model.LongRunningProcess
+namespace SAMA.Framework.Common.Domain.Model.LongRunningProcess
 {
     public interface IProcess
     {

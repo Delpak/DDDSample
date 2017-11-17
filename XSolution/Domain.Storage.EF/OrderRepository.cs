@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DDDSample.Repository.EF;
+using SAMA.Framework.Common;
 using SAMA.XSolution.Domain.Models;
 
 namespace SAMA.XSolution.Repository.EF
@@ -9,7 +9,7 @@ namespace SAMA.XSolution.Repository.EF
 
     public class OrderRepository : GenericRepository<OrderState>, IOrderRepository
     {
-        private readonly IAppContext _context;
+        private readonly IApplicationContext _context;
         
         public void Add(Order product)
         {
@@ -41,7 +41,7 @@ namespace SAMA.XSolution.Repository.EF
             
         }
 
-        public OrderRepository(IAppContext context) : base(context)
+        public OrderRepository(IApplicationContext context) : base(context)
         {
             _context = context;
         }

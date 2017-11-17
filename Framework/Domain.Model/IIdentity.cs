@@ -1,4 +1,4 @@
-﻿namespace SAMA.FrameWork.Common.Domain.Model
+﻿namespace SAMA.Framework.Common.Domain.Model
 {
     public interface IIdentity<T>
     {

@@ -1,4 +1,4 @@
-﻿using SAMA.YSolution.Domain.Helpers.Domain;
+﻿using SAMA.Framework.Common.Helpers.Domain;
 using SAMA.YSolution.Domain.Purchases;
 
 namespace SAMA.YSolution.Domain.Customers

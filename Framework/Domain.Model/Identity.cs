@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SAMA.FrameWork.Common.Domain.Model
+namespace SAMA.Framework.Common.Domain.Model
 {
     public abstract class Identity<T> : IEquatable<Identity<T>>, IIdentity<T>
     {

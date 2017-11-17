@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SAMA.FrameWork.Common.Domain.Model
+namespace SAMA.Framework.Common.Domain.Model
 {
     internal static class HashCodeHelper
     {

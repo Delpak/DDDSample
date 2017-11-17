@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SAMA.FrameWork.Common
+namespace SAMA.Framework.Common
 {
     public interface ISpecification<TEntity>
     {

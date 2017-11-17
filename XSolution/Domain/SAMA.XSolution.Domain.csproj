@@ -49,16 +49,6 @@
     <Compile Include="Exceptions\CustomerLimitReachedException.cs" />
     <Compile Include="Exceptions\DuplicateEmailException.cs" />
     <Compile Include="Exceptions\EntityNotFoundException.cs" />
-    <Compile Include="Infrastructure\AggregateExtensionMethods.cs" />
-    <Compile Include="Infrastructure\ConventionEventRouter.cs" />
-    <Compile Include="Infrastructure\HandlerForDomainEventNotFoundException.cs" />
-    <Compile Include="Infrastructure\Interfaces\IAggregate.cs" />
-    <Compile Include="Infrastructure\AggregateBase.cs" />
-    <Compile Include="Infrastructure\Interfaces\IQuery.cs" />
-    <Compile Include="Infrastructure\Interfaces\IQueryHandler.cs" />
-    <Compile Include="Infrastructure\Interfaces\IRepository.cs" />
-    <Compile Include="Infrastructure\Interfaces\IRouteEvents.cs" />
-    <Compile Include="Infrastructure\QueryResult.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Events\Orders\CustomerNameChanged.cs" />

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using SAMA.FrameWork.Common.Domain.Model;
+using SAMA.Framework.Common.Domain.Model;
 
-namespace SAMA.FrameWork.Common.Notifications
+namespace SAMA.Framework.Common.Notifications
 {
     [Serializable]
     public class Notification : ValueObject

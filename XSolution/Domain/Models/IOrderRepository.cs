@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using SAMA.Framework.Common;
 
 namespace SAMA.XSolution.Domain.Models
 {

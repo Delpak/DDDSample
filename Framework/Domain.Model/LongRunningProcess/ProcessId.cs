@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace SAMA.FrameWork.Common.Domain.Model.LongRunningProcess
+namespace SAMA.Framework.Common.Domain.Model.LongRunningProcess
 {
     public class ProcessId : Identity<Guid>
     {
