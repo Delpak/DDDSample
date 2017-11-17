@@ -1,4 +1,4 @@
-﻿namespace BoundedContext.Domain.Model.Events.Orders
+﻿namespace SAMA.XSolution.Domain.Events.Orders
 {
     public class OrderLineAdded
     {

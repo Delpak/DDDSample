@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
-using BoundedContext.Domain.Model.Models;
+using SAMA.XSolution.Domain.Models;
 
 namespace SAMA.XSolution.Repository.EF
 {

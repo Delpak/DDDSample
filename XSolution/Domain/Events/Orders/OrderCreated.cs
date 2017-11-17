@@ -1,6 +1,6 @@
-﻿using BoundedContext.Domain.Model.Models;
+﻿using SAMA.XSolution.Domain.Models;
 
-namespace BoundedContext.Domain.Model.Events.Orders
+namespace SAMA.XSolution.Domain.Events.Orders
 {
     public class OrderCreated
     {

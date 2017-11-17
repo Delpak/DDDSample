@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using SAMA.FrameWork.Common.Domain.Model;
 
-namespace BoundedContext.Domain.Model.Models
+namespace SAMA.XSolution.Domain.Models
 {
     [ComplexType]
     public class CustomerId : Identity<string>

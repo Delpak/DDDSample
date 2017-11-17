@@ -1,7 +1,7 @@
 using System.Globalization;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
 
-namespace BoundedContext.Domain.Model.Infrastructure
+namespace SAMA.XSolution.Domain.Infrastructure
 {
     internal static class AggregateExtensionMethods
     {

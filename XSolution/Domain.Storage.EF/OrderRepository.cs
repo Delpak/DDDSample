@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BoundedContext.Domain.Model.Models;
 using DDDSample.Repository.EF;
+using SAMA.XSolution.Domain.Models;
 
 namespace SAMA.XSolution.Repository.EF
 {

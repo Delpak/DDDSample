@@ -71,9 +71,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\SAMA.XSolution.Domain.Model.csproj">
+    <ProjectReference Include="..\Domain\SAMA.XSolution.Domain.csproj">
       <Project>{7503dc12-46fc-498a-b9cc-3990548128eb}</Project>
-      <Name>SAMA.XSolution.Domain.Model</Name>
+      <Name>SAMA.XSolution.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

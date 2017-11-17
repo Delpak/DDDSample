@@ -1,4 +1,4 @@
-﻿namespace BoundedContext.Domain.Model.Infrastructure.Interfaces
+﻿namespace SAMA.XSolution.Domain.Infrastructure.Interfaces
 {
     public interface IQueryHandler<TQuery, TResult> where TQuery : IQuery<TResult>
     {

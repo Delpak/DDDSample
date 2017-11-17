@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace BoundedContext.Domain.Model.Infrastructure
+namespace SAMA.XSolution.Domain.Infrastructure
 {
     public class HandlerForDomainEventNotFoundException : Exception
     {

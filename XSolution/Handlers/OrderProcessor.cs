@@ -1,12 +1,12 @@
 ﻿using System;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
-using BoundedContext.Domain.Model.Models;
 using Ninject;
 using NServiceBus;
 using NServiceBus.Saga;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Models;
 using SAMA.XSolution.Messages.Commands;
 using SAMA.XSolution.Messages.Events;
-using Order = BoundedContext.Domain.Model.Models.Order;
+using Order = SAMA.XSolution.Domain.Models.Order;
 
 namespace SAMA.XSolution.Handlers
 {

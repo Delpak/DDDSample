@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace BoundedContext.Domain.Model.Models
+namespace SAMA.XSolution.Domain.Models
 {
     //public interface IOrderRepository
     //{

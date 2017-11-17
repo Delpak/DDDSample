@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using BoundedContext.Domain.Model.Events.Orders;
-using BoundedContext.Domain.Model.Exceptions;
-using BoundedContext.Domain.Model.Infrastructure;
-using BoundedContext.Domain.Model.Specifications;
 using SAMA.FrameWork.Common.Domain.Model;
+using SAMA.XSolution.Domain.Events.Orders;
+using SAMA.XSolution.Domain.Exceptions;
+using SAMA.XSolution.Domain.Infrastructure;
+using SAMA.XSolution.Domain.Specifications;
 
-namespace BoundedContext.Domain.Model.Models
+namespace SAMA.XSolution.Domain.Models
 {
     [ComplexType]
     public class OrderId : Identity<Guid>

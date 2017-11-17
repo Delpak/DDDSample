@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BoundedContext.Domain.Model.Exceptions
+namespace SAMA.XSolution.Domain.Exceptions
 {
     public class EntityNotFoundException:Exception
     {

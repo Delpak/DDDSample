@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
-using BoundedContext.Domain.Model.Models;
 using SAMA.FrameWork.Common;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Models;
 
-namespace BoundedContext.Domain.Model.Specifications
+namespace SAMA.XSolution.Domain.Specifications
 {
     public class CustomerExistsSpecification : ICustomerExistsSpecification
     {

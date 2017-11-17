@@ -1,4 +1,4 @@
-﻿namespace BoundedContext.Domain.Model.Models
+﻿namespace SAMA.XSolution.Domain.Models
 {
     public enum OrderStatus
     {

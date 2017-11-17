@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
 
-namespace BoundedContext.Domain.Model.Infrastructure
+namespace SAMA.XSolution.Domain.Infrastructure
 {
     public abstract class AggregateBase : IAggregate
     {

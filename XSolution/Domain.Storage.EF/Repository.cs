@@ -2,8 +2,8 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using BoundedContext.Domain.Model.Infrastructure;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Infrastructure;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
 
 namespace SAMA.XSolution.Repository.EF
 {

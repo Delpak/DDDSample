@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace BoundedContext.Domain.Model.Infrastructure.Interfaces
+namespace SAMA.XSolution.Domain.Infrastructure.Interfaces
 {
     public interface IRepository
     {

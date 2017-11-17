@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
-using BoundedContext.Domain.Model.Models;
-using BoundedContext.Domain.Model.Specifications;
 using MassTransit;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Models;
+using SAMA.XSolution.Domain.Specifications;
 using SAMA.XSolution.Messages.Commands;
 using SAMA.XSolution.Messages.Events;
 

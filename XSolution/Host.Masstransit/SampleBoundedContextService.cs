@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Configuration;
 using Autofac;
-using BoundedContext.Domain.Model;
 using DDDSample.Repository.EF;
 using Host.Masstransit.Consumers;
 using MassTransit;
 using SAMA.Host.Masstransit.Consumers;
+using SAMA.XSolution.Domain;
 using Topshelf;
 
 namespace Host.Masstransit

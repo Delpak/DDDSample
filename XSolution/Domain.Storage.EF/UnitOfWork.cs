@@ -1,5 +1,5 @@
 ﻿using System;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
 
 namespace SAMA.XSolution.Repository.EF
 {

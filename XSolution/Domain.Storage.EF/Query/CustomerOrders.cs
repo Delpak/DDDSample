@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using BoundedContext.Domain.Model.Infrastructure;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
-using BoundedContext.Domain.Model.Models;
+using SAMA.XSolution.Domain.Infrastructure;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Models;
 using SAMA.XSolution.Repository.EF;
 
 namespace DDDSample.Repository.EF.Query

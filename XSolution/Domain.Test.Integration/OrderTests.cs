@@ -1,10 +1,10 @@
 ﻿using System;
-using BoundedContext.Domain.Model.Exceptions;
-using BoundedContext.Domain.Model.Models;
-using BoundedContext.Domain.Model.Specifications;
 using DDDSample.Repository.EF.Query;
 using Moq;
 using NUnit.Framework;
+using SAMA.XSolution.Domain.Exceptions;
+using SAMA.XSolution.Domain.Models;
+using SAMA.XSolution.Domain.Specifications;
 
 namespace SAMA.XSolution.Domain.Integration.Test
 {

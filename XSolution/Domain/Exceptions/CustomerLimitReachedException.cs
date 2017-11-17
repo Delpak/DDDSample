@@ -1,7 +1,7 @@
 ﻿using System;
-using BoundedContext.Domain.Model.Models;
+using SAMA.XSolution.Domain.Models;
 
-namespace BoundedContext.Domain.Model.Exceptions
+namespace SAMA.XSolution.Domain.Exceptions
 {
     public class CustomerLimitReachedException : Exception
     {

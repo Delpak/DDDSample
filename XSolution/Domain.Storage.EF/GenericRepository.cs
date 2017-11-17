@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using BoundedContext.Domain.Model.Models;
+using SAMA.XSolution.Domain.Models;
 using SAMA.XSolution.Repository.EF;
 
 namespace DDDSample.Repository.EF

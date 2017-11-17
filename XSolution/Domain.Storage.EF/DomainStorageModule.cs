@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 using Autofac;
-using BoundedContext.Domain.Model.Infrastructure.Interfaces;
+using SAMA.XSolution.Domain.Infrastructure.Interfaces;
 using SAMA.XSolution.Repository.EF;
 
 namespace DDDSample.Repository.EF

@@ -1,7 +1,7 @@
 ﻿using Autofac;
-using BoundedContext.Domain.Model.Specifications;
+using SAMA.XSolution.Domain.Specifications;
 
-namespace BoundedContext.Domain.Model
+namespace SAMA.XSolution.Domain
 {
     public class DomainModule : Module
     {

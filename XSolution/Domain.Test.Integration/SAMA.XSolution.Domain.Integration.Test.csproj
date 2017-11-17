@@ -96,9 +96,9 @@
       <Project>{f10e9dee-ef04-4a8e-85c1-3a41c9e5d176}</Project>
       <Name>SAMA.XSolution.Repository.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\SAMA.XSolution.Domain.Model.csproj">
+    <ProjectReference Include="..\Domain\SAMA.XSolution.Domain.csproj">
       <Project>{7503DC12-46FC-498A-B9CC-3990548128EB}</Project>
-      <Name>SAMA.XSolution.Domain.Model</Name>
+      <Name>SAMA.XSolution.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

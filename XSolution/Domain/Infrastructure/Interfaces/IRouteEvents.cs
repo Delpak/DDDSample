@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BoundedContext.Domain.Model.Infrastructure.Interfaces
+namespace SAMA.XSolution.Domain.Infrastructure.Interfaces
 {
     public interface IRouteEvents
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using BoundedContext.Domain.Model.Exceptions;
-using BoundedContext.Domain.Model.Specifications;
 using SAMA.FrameWork.Common.Domain.Model;
+using SAMA.XSolution.Domain.Exceptions;
+using SAMA.XSolution.Domain.Specifications;
 
-namespace BoundedContext.Domain.Model.Models
+namespace SAMA.XSolution.Domain.Models
 {
     public class Customer : Entity
     {

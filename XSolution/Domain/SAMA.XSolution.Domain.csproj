@@ -7,8 +7,8 @@
     <ProjectGuid>{7503DC12-46FC-498A-B9CC-3990548128EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SAMA.XSolution.Domain.Model</RootNamespace>
-    <AssemblyName>SAMA.XSolution.Domain.Model</AssemblyName>
+    <RootNamespace>SAMA.XSolution.Domain</RootNamespace>
+    <AssemblyName>SAMA.XSolution.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
