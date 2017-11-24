@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections;
 
 namespace SAMA.Framework.Common.Interfaces
 {
-    public interface IAggregate
-    {
-        void ApplyEvent(object e);
-        ICollection GetUncommittedEvents();
-        void ClearUncommittedEvents();
-    }
-
-
     public interface IUnitOfWork : IDisposable
     {
 

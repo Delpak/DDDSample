@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using SAMA.Framework.Common.Helpers.Domain;
 
 namespace SAMA.Framework.Common.Helpers.Repository
 {
-    public interface IRepository<TEntity> where TEntity : IAggregateRoot
+    public interface IRepository<T> where T : IAggregateRoot
     {
-        TEntity FindById(Guid id);
-        TEntity FindOne(Specification.ISpecification<TEntity> spec);
-        IEnumerable<TEntity> Find(Specification.ISpecification<TEntity> spec);
-        void Add(TEntity entity);
-        void Remove(TEntity entity);
+        T GetById(int id);
+        T GetSingleBySpec(Specification.ISpecification<T> spec);
+        IEnumerable<T> ListAll();
+        IEnumerable<T> List(Specification.ISpecification<T> spec);
+        IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate);
+        T Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
     }
 }

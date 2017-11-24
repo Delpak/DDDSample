@@ -10,7 +10,7 @@ namespace SAMA.Framework.Common
     {
         readonly bool _throwOnApplyNotFound;
         readonly IDictionary<Type, Action<object>> _handlers = new Dictionary<Type, Action<object>>();
-        IAggregate _registered;
+        IContainsEventAggregate _registered;
 
         public ConventionEventRouter()
             : this(true)
@@ -22,7 +22,7 @@ namespace SAMA.Framework.Common
             _throwOnApplyNotFound = throwOnApplyNotFound;
         }
 
-        public ConventionEventRouter(bool throwOnApplyNotFound, IAggregate aggregate)
+        public ConventionEventRouter(bool throwOnApplyNotFound, IContainsEventAggregate aggregate)
             : this(throwOnApplyNotFound)
         {
             Register(aggregate);
@@ -35,7 +35,7 @@ namespace SAMA.Framework.Common
 
             this.Register(typeof (T), @event => handler((T) @event));
         }
-        public virtual void Register(IAggregate aggregate)
+        public virtual void Register(IContainsEventAggregate aggregate)
         {
             if (aggregate == null)
                 throw new ArgumentNullException("aggregate");

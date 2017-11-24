@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using SAMA.Framework.Common.Helpers.Domain;
 
 namespace SAMA.Framework.Common.Domain.Model
 {
-    public abstract class Entity
+    public abstract class Entity : IAggregateRoot
     {
         [Timestamp]
         public byte[] Timestamp { get; set; }
+
+        public Guid Id { get; }
     }
 
     public abstract class EntityWithCompositeId : Entity

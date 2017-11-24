@@ -13,7 +13,7 @@ namespace SAMA.Framework.Common.Helpers.Specification
         }
 
         // NegatedSpecification
-        public override Expression<Func<T, bool>> SpecExpression
+        public override Expression<Func<T, bool>> Criteria
         {
             get
             {
@@ -21,7 +21,7 @@ namespace SAMA.Framework.Common.Helpers.Specification
 
                 var newExpr = Expression.Lambda<Func<T, bool>>(
                     Expression.Not(
-                        Expression.Invoke(_inner.SpecExpression, objParam)
+                        Expression.Invoke(_inner.Criteria, objParam)
                     ),
                     objParam
                 );

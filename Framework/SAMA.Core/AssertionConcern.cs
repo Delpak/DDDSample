@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace SAMA.Framework.Common.Domain.Model
+namespace SAMA.Core
 {
     public class AssertionConcern
     {

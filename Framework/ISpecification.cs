@@ -9,23 +9,10 @@ namespace SAMA.Framework.Common
 
     internal class AndSpecification<TEntity> : ISpecification<TEntity>
     {
-        readonly ISpecification<TEntity> _spec1;
-        readonly ISpecification<TEntity> _spec2;
+        protected ISpecification<TEntity> Spec1 { get; }
 
-        protected ISpecification<TEntity> Spec1
-        {
-            get
-            {
-                return _spec1;
-            }
-        }
-        protected ISpecification<TEntity> Spec2
-        {
-            get
-            {
-                return _spec2;
-            }
-        }
+        protected ISpecification<TEntity> Spec2 { get; }
+
         internal AndSpecification(ISpecification<TEntity> spec1, ISpecification<TEntity> spec2)
         {
             if (spec1 == null)
@@ -34,8 +21,8 @@ namespace SAMA.Framework.Common
             if (spec2 == null)
                 throw new ArgumentNullException("spec2");
 
-            _spec1 = spec1;
-            _spec2 = spec2;
+            Spec1 = spec1;
+            Spec2 = spec2;
         }
         public bool IsSatisfiedBy(TEntity candidate)
         {

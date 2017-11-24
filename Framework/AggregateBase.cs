@@ -5,7 +5,7 @@ using SAMA.Framework.Common.Interfaces;
 
 namespace SAMA.Framework.Common
 {
-    public abstract class AggregateBase : IAggregate
+    public abstract class AggregateBase : IContainsEventAggregate
     {
         readonly ICollection<object> _uncommittedEvents = new LinkedList<object>();
         IRouteEvents _registeredRoutes;
@@ -40,19 +40,19 @@ namespace SAMA.Framework.Common
         }
         protected void RaiseEvent(object @event)
         {
-            ((IAggregate)this).ApplyEvent(@event);
+            ((IContainsEventAggregate)this).ApplyEvent(@event);
             _uncommittedEvents.Add(@event);
         }
-        void IAggregate.ApplyEvent(object @event)
+        void IContainsEventAggregate.ApplyEvent(object @event)
         {
             RegisteredRoutes.Dispatch(@event);
             Version++;
         }
-        ICollection IAggregate.GetUncommittedEvents()
+        ICollection IContainsEventAggregate.GetUncommittedEvents()
         {
             return (ICollection)_uncommittedEvents;
         }
-        void IAggregate.ClearUncommittedEvents()
+        void IContainsEventAggregate.ClearUncommittedEvents()
         {
             _uncommittedEvents.Clear();
         }

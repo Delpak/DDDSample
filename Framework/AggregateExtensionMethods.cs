@@ -10,7 +10,7 @@ namespace SAMA.Framework.Common
             return string.Format(CultureInfo.InvariantCulture, format ?? string.Empty, args);
         }
 
-        public static void ThrowHandlerNotFound(this IAggregate aggregate, object eventMessage)
+        public static void ThrowHandlerNotFound(this IContainsEventAggregate aggregate, object eventMessage)
         {
             var exceptionMessage = "Aggregate of type '{0}' raised an event of type '{1}' but not handler could be found to handle the message."
                 .FormatWith(aggregate.GetType().Name, eventMessage.GetType().Name);

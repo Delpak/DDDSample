@@ -33,6 +33,9 @@
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=6.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -59,8 +62,13 @@
   <ItemGroup>
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateExtensionMethods.cs" />
+    <Compile Include="Commands\CommandSender.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="Commands\ICommandHandlerAsync.cs" />
+    <Compile Include="Commands\ICommandSender.cs" />
     <Compile Include="ConventionEventRouter.cs" />
-    <Compile Include="Domain.Model\AssertionConcern.cs" />
+    <Compile Include="Domain.Model\ComparableValueObject.cs" />
     <Compile Include="Domain.Model\DomainEventPublisher.cs" />
     <Compile Include="Domain.Model\Entity.cs" />
     <Compile Include="Domain.Model\EventSourcedRootEntity.cs" />
@@ -69,6 +77,8 @@
     <Compile Include="Domain.Model\IDomainEvent.cs" />
     <Compile Include="Domain.Model\IDomainEventSubscriber.cs" />
     <Compile Include="Domain.Model\IIdentity.cs" />
+    <Compile Include="Domain.Model\IWeapsyDomainEvent.cs" />
+    <Compile Include="Domain.Model\IWeapsyEvent.cs" />
     <Compile Include="Domain.Model\LongRunningProcess\IProcess.cs" />
     <Compile Include="Domain.Model\LongRunningProcess\ITimeConstrainedProcessTrackerRepository.cs" />
     <Compile Include="Domain.Model\LongRunningProcess\ProcessId.cs" />
@@ -77,8 +87,8 @@
     <Compile Include="Domain.Model\ValueObject.cs" />
     <Compile Include="Events\EventSerializer.cs" />
     <Compile Include="Events\IEventStore.cs" />
+    <Compile Include="Events\IWeapsyEventStore.cs" />
     <Compile Include="Events\StoredEvent.cs" />
-    <Compile Include="GenericRepository.cs" />
     <Compile Include="HandlerForDomainEventNotFoundException.cs" />
     <Compile Include="Helpers\Domain\DomainEvent.cs" />
     <Compile Include="Helpers\Domain\DomainEventHandle.cs" />
@@ -87,20 +97,24 @@
     <Compile Include="Helpers\Domain\IAggregateRoot.cs" />
     <Compile Include="Helpers\Domain\IDomainService.cs" />
     <Compile Include="Helpers\Domain\IHandles.cs" />
+    <Compile Include="Helpers\Domain\IWeapsyAggregateRoot.cs" />
     <Compile Include="Helpers\Logging\IRequestCorrelationIdentifier.cs" />
+    <Compile Include="Helpers\Repository\GenericRepository.cs" />
+    <Compile Include="Helpers\Repository\IAsyncRepository.cs" />
     <Compile Include="Helpers\Repository\IDomainEventRepository.cs" />
     <Compile Include="Helpers\Repository\IRepository.cs" />
     <Compile Include="Helpers\Repository\IUnitOfWork.cs" />
-    <Compile Include="Helpers\Specification\And.cs" />
-    <Compile Include="Helpers\Specification\IExtensions.cs" />
-    <Compile Include="Helpers\Specification\ISpecification.cs" />
-    <Compile Include="Helpers\Specification\Negate.cs" />
-    <Compile Include="Helpers\Specification\Or.cs" />
-    <Compile Include="Helpers\Specification\SpecificationBase.cs" />
-    <Compile Include="IGenericRepository.cs" />
-    <Compile Include="Interfaces\IAggregate.cs" />
-    <Compile Include="Interfaces\IQuery.cs" />
-    <Compile Include="Interfaces\IQueryHandler.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\PagedQueryBase.cs" />
+    <Compile Include="Repository\IAppContext.cs" />
+    <Compile Include="Specification\And.cs" />
+    <Compile Include="Specification\IExtensions.cs" />
+    <Compile Include="Specification\IFilterSpecification.cs" />
+    <Compile Include="Specification\ISpecification.cs" />
+    <Compile Include="Specification\Negate.cs" />
+    <Compile Include="Specification\Or.cs" />
+    <Compile Include="Specification\SpecificationBase.cs" />
+    <Compile Include="Interfaces\IContainsEventAggregate.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IRouteEvents.cs" />
     <Compile Include="ISpecification.cs" />
@@ -114,11 +128,28 @@
     <Compile Include="Port.Adapters\Persistence\JoinOn.cs" />
     <Compile Include="Port.Adapters\Persistence\ResultSetObjectMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryResult.cs" />
+    <Compile Include="Queries\IQuery.cs" />
+    <Compile Include="Queries\IQueryDispatcher.cs" />
+    <Compile Include="Queries\IQueryHandler.cs" />
+    <Compile Include="Queries\IQueryHandlerAsync.cs" />
+    <Compile Include="Queries\QueryDispatcher.cs" />
+    <Compile Include="Interfaces\PagedQueryResult.cs" />
+    <Compile Include="WeapsyEvents\EventFactory.cs" />
+    <Compile Include="WeapsyEvents\EventPublisher.cs" />
+    <Compile Include="WeapsyEvents\IEvent.cs" />
+    <Compile Include="WeapsyEvents\IEventHandler.cs" />
+    <Compile Include="WeapsyEvents\IEventHandlerAsync.cs" />
+    <Compile Include="WeapsyEvents\IEventPublisher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SAMA.Core\SAMA.Core.csproj">
+      <Project>{11BFF9AF-1476-45B7-8E15-1B300A9B0173}</Project>
+      <Name>SAMA.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

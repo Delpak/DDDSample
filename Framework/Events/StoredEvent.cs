@@ -1,4 +1,5 @@
 ﻿using System;
+using SAMA.Core;
 using SAMA.Framework.Common.Domain.Model;
 
 namespace SAMA.Framework.Common.Events

@@ -17,7 +17,7 @@ namespace SAMA.Framework.Common.Helpers.Specification
         }
 
         // OrSpecification
-        public override Expression<Func<T, bool>> SpecExpression
+        public override Expression<Func<T, bool>> Criteria
         {
             get
             {
@@ -25,8 +25,8 @@ namespace SAMA.Framework.Common.Helpers.Specification
 
                 var newExpr = Expression.Lambda<Func<T, bool>>(
                     Expression.OrElse(
-                        Expression.Invoke(left.SpecExpression, objParam),
-                        Expression.Invoke(right.SpecExpression, objParam)
+                        Expression.Invoke(left.Criteria, objParam),
+                        Expression.Invoke(right.Criteria, objParam)
                     ),
                     objParam
                 );

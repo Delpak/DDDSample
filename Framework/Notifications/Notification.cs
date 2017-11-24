@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SAMA.Core;
 using SAMA.Framework.Common.Domain.Model;
 
 namespace SAMA.Framework.Common.Notifications

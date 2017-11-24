@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertionConcern.cs" />
+    <Compile Include="DependencyResolver\AutofacResolver.cs" />
+    <Compile Include="DependencyResolver\IResolver.cs" />
     <Compile Include="Logger\LoggerModule.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\NLogLogger.cs" />
