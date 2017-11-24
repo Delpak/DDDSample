@@ -13,7 +13,7 @@ namespace SAMA.Framework.Common.Helpers.Repository
     ///     https://blogs.msdn.microsoft.com/pfxteam/2012/04/13/should-i-expose-synchronous-wrappers-for-asynchronous-methods/
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public abstract class GenericRepository<TEntity> : IRepository<TEntity>, IAsyncRepository<TEntity> where TEntity : Entity
+    public abstract class GenericRepository<TEntity,TKey> : IRepository<TEntity, TKey>, IAsyncRepository<TEntity, TKey> where TEntity : Entity
     {
         private readonly DbContext _dbContext;
         private readonly IDbSet<TEntity> _dbset;
@@ -24,7 +24,7 @@ namespace SAMA.Framework.Common.Helpers.Repository
             _dbset = _dbContext.Set<TEntity>();
         }
 
-        public virtual async Task<TEntity> GetByIdAsync(int id)
+        public virtual async Task<TEntity> GetByIdAsync(TKey id)
         {
             return await _dbContext.Set<TEntity>().FindAsync(id);
         }
@@ -72,7 +72,7 @@ namespace SAMA.Framework.Common.Helpers.Repository
             await _dbContext.SaveChangesAsync();
         }
 
-        public virtual TEntity GetById(int id)
+        public virtual TEntity GetById(TKey id)
         {
             return _dbset.Find(id);
         }

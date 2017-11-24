@@ -5,9 +5,9 @@ using SAMA.Framework.Common.Helpers.Domain;
 
 namespace SAMA.Framework.Common.Helpers.Repository
 {
-    public interface IRepository<T> where T : IAggregateRoot
+    public interface IRepository<T, TKey> where T : IAggregateRoot
     {
-        T GetById(int id);
+        T GetById(TKey id);
         T GetSingleBySpec(Specification.ISpecification<T> spec);
         IEnumerable<T> ListAll();
         IEnumerable<T> List(Specification.ISpecification<T> spec);
