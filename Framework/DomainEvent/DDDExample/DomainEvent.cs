@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace SAMA.Framework.Common.Helpers.Domain
 {
+    /// <summary>
+    /// <see cref="Domain-Driven-Design-Example"/>
+    /// </summary>
     public abstract class DomainEvent
     {
         public DomainEvent()

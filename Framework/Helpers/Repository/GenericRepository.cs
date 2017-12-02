@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using SAMA.Framework.Common.Domain.Model;
+using SAMA.Framework.Common.Helpers.Domain;
 
 namespace SAMA.Framework.Common.Helpers.Repository
 {
@@ -13,7 +14,8 @@ namespace SAMA.Framework.Common.Helpers.Repository
     ///     https://blogs.msdn.microsoft.com/pfxteam/2012/04/13/should-i-expose-synchronous-wrappers-for-asynchronous-methods/
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public abstract class GenericRepository<TEntity,TKey> : IRepository<TEntity, TKey>, IAsyncRepository<TEntity, TKey> where TEntity : Entity
+    /// <typeparam name="TKey"></typeparam>
+    public abstract class GenericRepository<TEntity,TKey> : IRepository<TEntity,TKey>, IAsyncRepository<TEntity,TKey> where TEntity : Entity<TKey>, IAggregateRoot<TKey>
     {
         private readonly DbContext _dbContext;
         private readonly IDbSet<TEntity> _dbset;

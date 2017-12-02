@@ -2,8 +2,8 @@
 
 namespace SAMA.Framework.Common.Helpers.Domain
 {
-    public interface IAggregateRoot
+    public interface IAggregateRoot<out TKey>
     {
-        Guid Id { get; }
+        TKey Id { get; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SAMA.Framework.Common.Domain.Model
+namespace SAMA.Core
 {
-    internal static class HashCodeHelper
+    public static class HashCodeHelper
     {
         public static int CombineHashCodes(IEnumerable<object> objs)
         {

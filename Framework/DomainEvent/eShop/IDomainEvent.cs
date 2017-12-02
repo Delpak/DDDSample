@@ -4,7 +4,9 @@ namespace SAMA.Framework.Common.Domain.Model
 {
     public interface IDomainEvent
     {
-        int EventVersion { get; set;  }
+        int Version { get; set;  }
         DateTime OccurredOn { get; set; }
+        Guid AggregateRootId { get; set; }
+        Guid UserId { get; set; }
     }
 }

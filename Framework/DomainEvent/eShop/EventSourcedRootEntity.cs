@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SAMA.Framework.Common.Domain.Model
 {
-    public abstract class EventSourcedRootEntity : EntityWithCompositeId
+    public abstract class EventSourcedRootEntity : EntityWithCompositeId<Guid>
     {
         public EventSourcedRootEntity()
         {

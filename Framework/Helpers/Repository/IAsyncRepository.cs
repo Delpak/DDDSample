@@ -4,7 +4,7 @@ using SAMA.Framework.Common.Helpers.Domain;
 
 namespace SAMA.Framework.Common.Helpers.Repository
 {
-    public interface IAsyncRepository<T, TKey> where T : IAggregateRoot
+    public interface IAsyncRepository<T, in TKey> where T : IAggregateRoot<TKey>
     {
         Task<T> GetByIdAsync(TKey id);
         Task<List<T>> ListAllAsync();

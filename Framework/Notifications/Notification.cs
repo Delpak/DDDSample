@@ -15,7 +15,7 @@ namespace SAMA.Framework.Common.Notifications
             this.notificationId = notificationId;
             this.domainEvent = domainEvent;
             this.occurredOn = domainEvent.OccurredOn;
-            this.version = domainEvent.EventVersion;
+            this.version = domainEvent.Version;
             this.typeName = domainEvent.GetType().FullName;
         }
 

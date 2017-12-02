@@ -5,7 +5,7 @@ using SAMA.Framework.Common.Helpers.Domain;
 
 namespace SAMA.Framework.Common.Helpers.Repository
 {
-    public interface IRepository<T, TKey> where T : IAggregateRoot
+    public interface IRepository<T, in TKey> where T : IAggregateRoot<TKey>
     {
         T GetById(TKey id);
         T GetSingleBySpec(Specification.ISpecification<T> spec);

@@ -10,7 +10,7 @@ namespace SAMA.Framework.Common.Domain.Model.LongRunningProcess
                 int totalRetriesPermitted,
                 int retryCount)
         {
-            this.EventVersion = 1;
+            this.Version = 1;
             this.OccurredOn = DateTime.Now;
             this.ProcessId = processId;
             this.RetryCount = retryCount;
@@ -18,8 +18,10 @@ namespace SAMA.Framework.Common.Domain.Model.LongRunningProcess
             this.TotalRetriesPermitted = totalRetriesPermitted;
         }
 
-        public int EventVersion { get; set; }
+        public int Version { get; set; }
         public DateTime OccurredOn { get; set; }
+        public Guid AggregateRootId { get; set; }
+        public Guid UserId { get; set; }
         public ProcessId ProcessId { get; private set; }
         public int RetryCount { get; private set; }
         public string TenantId { get; private set; }
